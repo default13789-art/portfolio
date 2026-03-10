@@ -46,14 +46,14 @@ export const AIFrame = ({
 // Glowing border frame
 export const GlowFrame = ({ children, className = '', color = 'cyan' }) => {
   const colors = {
-    cyan: 'from-[#3ce6f9] to-[#c084fc]',
-    purple: 'from-[#c084fc] to-[#a855f7]',
-    green: 'from-[#22c55e] to-[#05b5d4]'
+    cyan: 'from-[#00f3ff] to-[#ff00ff]',
+    purple: 'from-[#ff00ff] to-[#ff00ff]',
+    green: 'from-[#22c55e] to-[#00f3ff]'
   };
 
   return (
     <div className={`relative p-[1px] rounded-lg bg-gradient-to-r ${colors[color]} ${className}`}>
-      <div className="relative bg-[#0a0a0f] rounded-lg">
+      <div className="relative bg-[#050505] rounded-lg">
         {children}
       </div>
     </div>
@@ -71,8 +71,8 @@ export const TechSectionHeader = ({
     {/* Badge */}
     {badge && (
       <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 glass-card rounded-full">
-        <span className="w-2 h-2 bg-[#3ce6f9] rounded-full animate-pulse" />
-        <span className="text-sm font-mono text-[#3ce6f9]">{badge}</span>
+        <span className="w-2 h-2 bg-[#00f3ff] rounded-full animate-pulse" />
+        <span className="text-sm font-mono text-[#00f3ff]">{badge}</span>
       </div>
     )}
 
@@ -99,9 +99,9 @@ export const TechSectionHeader = ({
 
     {/* Decorative line */}
     <div className="flex items-center justify-center gap-4 mt-8">
-      <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#3ce6f9]" />
-      <div className="w-2 h-2 bg-[#3ce6f9] rounded-full animate-pulse" />
-      <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#c084fc]" />
+      <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#00f3ff]" />
+      <div className="w-2 h-2 bg-[#00f3ff] rounded-full animate-pulse" />
+      <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#ff00ff]" />
     </div>
   </div>
 );
@@ -117,7 +117,7 @@ export const HoverCard = ({
   >
     {/* Scanning line effect on hover */}
     <div className="absolute inset-0 overflow-hidden rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#3ce6f9]/5 to-transparent translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00f3ff]/5 to-transparent translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000" />
     </div>
 
     {children}
@@ -146,9 +146,9 @@ export const TechTooltip = ({ children, content }) => (
     {children}
 
     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 glass-card rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-      <div className="text-xs font-mono text-[#3ce6f9]">{content}</div>
+      <div className="text-xs font-mono text-[#00f3ff]">{content}</div>
       {/* Arrow */}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#0a0a0f]/80" />
+      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#050505]/80" />
     </div>
   </div>
 );
@@ -156,16 +156,16 @@ export const TechTooltip = ({ children, content }) => (
 // Progress bar with tech styling
 export const TechProgressBar = ({ progress, label, color = 'cyan' }) => {
   const colors = {
-    cyan: 'from-[#3ce6f9] to-[#c084fc]',
-    purple: 'from-[#c084fc] to-[#a855f7]',
-    green: 'from-[#22c55e] to-[#05b5d4]'
+    cyan: 'from-[#00f3ff] to-[#ff00ff]',
+    purple: 'from-[#ff00ff] to-[#ff00ff]',
+    green: 'from-[#22c55e] to-[#00f3ff]'
   };
 
   return (
     <div className="space-y-2">
       <div className="flex justify-between text-sm">
         <span className="text-gray-400">{label}</span>
-        <span className="font-mono text-[#3ce6f9]">{progress}%</span>
+        <span className="font-mono text-[#00f3ff]">{progress}%</span>
       </div>
 
       <div className="relative h-2 bg-gray-800/50 rounded-full overflow-hidden">
@@ -193,8 +193,8 @@ export const TechProgressBar = ({ progress, label, color = 'cyan' }) => {
 // Tag/chip with tech styling
 export const TechTag = ({ children, variant = 'default', size = 'md' }) => {
   const variants = {
-    default: 'bg-[#3ce6f9]/10 border-[#3ce6f9]/30 text-[#3ce6f9]',
-    purple: 'bg-[#c084fc]/10 border-[#c084fc]/30 text-[#c084fc]',
+    default: 'bg-[#00f3ff]/10 border-[#00f3ff]/30 text-[#00f3ff]',
+    purple: 'bg-[#ff00ff]/10 border-[#ff00ff]/30 text-[#ff00ff]',
     success: 'bg-[#22c55e]/10 border-[#22c55e]/30 text-[#22c55e]',
     warning: 'bg-[#f59e0b]/10 border-[#f59e0b]/30 text-[#f59e0b]'
   };
@@ -226,7 +226,7 @@ export const CornerAccent = ({ position = 'top-left' }) => {
 
   return (
     <div
-      className={`absolute w-8 h-8 border-[#3ce6f9]/30 ${positions[position]}`}
+      className={`absolute w-8 h-8 border-[#00f3ff]/30 ${positions[position]}`}
       style={{
         borderRadius: position.includes('top') ? '4px 0 0 0' : '0 0 0 4px'
       }}

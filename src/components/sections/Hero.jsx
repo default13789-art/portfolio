@@ -86,7 +86,7 @@ const Hero = () => {
     >
       {/* Subtle gradient overlay for better text readability */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0f]/30 to-[#0a0a0f] pointer-events-none z-0"
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/30 to-[#050505] pointer-events-none z-0"
         aria-hidden="true"
       />
 
@@ -104,14 +104,14 @@ const Hero = () => {
                 Decentralized Builder · LVL 9
               </span>
               {/* Network badge */}
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-[#0a0a0f] border border-white/10 text-gray-400">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-[#050505] border border-white/10 text-gray-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88]" />
                 ETH Mainnet
               </span>
             </div>
 
             {/* Greeting */}
-            <p className="text-[#d4af37] font-semibold mb-3 sm:mb-4 text-base sm:text-lg animate-fade-in-up opacity-0 stagger-2">
+            <p className="text-[#ffff00] font-semibold mb-3 sm:mb-4 text-base sm:text-lg animate-fade-in-up opacity-0 stagger-2">
               Hello, I'm
             </p>
 
@@ -127,12 +127,12 @@ const Hero = () => {
 
             {/* Typing Animation for Roles - Responsive sizing */}
             <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-200 mb-4 sm:mb-6 animate-fade-in-up opacity-0 stagger-3 min-h-[48px] sm:min-h-[60px] md:min-h-[72px] flex items-center justify-center px-2">
-              <span className="text-[#d4af37] text-sm sm:text-base">&lt;</span>
-              <span className="mx-1 sm:mx-2 text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#3ce6f9] to-[#a855f7]">
+              <span className="text-[#ffff00] text-sm sm:text-base">&lt;</span>
+              <span className="mx-1 sm:mx-2 text-transparent bg-clip-text bg-gradient-to-r from-[#ffff00] via-[#00f3ff] to-[#ff00ff]">
                 {displayText}
               </span>
               <span className="typing-cursor" aria-hidden="true" />
-              <span className="text-[#d4af37] text-sm sm:text-base">/&gt;</span>
+              <span className="text-[#ffff00] text-sm sm:text-base">/&gt;</span>
             </div>
 
             {/* Tagline - Responsive text */}
@@ -198,12 +198,12 @@ const Hero = () => {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative text-gray-400 hover:text-[#d4af37] transition-all duration-300 transform p-2 sm:p-3 will-change-transform"
+                  className="group relative text-gray-400 hover:text-[#ffff00] transition-all duration-300 transform p-2 sm:p-3 will-change-transform"
                   aria-label={`Visit ${platform} profile`}
                   title={`Connect on ${platform.charAt(0).toUpperCase() + platform.slice(1)}`}
                 >
                   {/* Glow effect on hover */}
-                  <span className="absolute inset-0 bg-[#d4af37]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-0 group-hover:scale-150" />
+                  <span className="absolute inset-0 bg-[#ffff00]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-0 group-hover:scale-150" />
 
                   {/* Icon */}
                   <span className="relative z-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6 inline-block">
@@ -211,7 +211,7 @@ const Hero = () => {
                   </span>
 
                   {/* Underline effect */}
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#d4af37] to-[#3ce6f9] transition-all duration-300 group-hover:w-8"></span>
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#ffff00] to-[#00f3ff] transition-all duration-300 group-hover:w-8"></span>
                 </a>
               ))}
             </div>
@@ -228,13 +228,13 @@ const Hero = () => {
           className="cursor-pointer group flex flex-col items-center gap-2"
           aria-label="Scroll to about section"
         >
-          <span className="text-gray-400 text-sm mb-1 group-hover:text-[#d4af37] transition-all duration-300 group-hover:translate-y-1 inline-block">
+          <span className="text-gray-400 text-sm mb-1 group-hover:text-[#ffff00] transition-all duration-300 group-hover:translate-y-1 inline-block">
             Scroll Down
           </span>
           <div className="relative">
-            <div className="absolute inset-0 bg-[#d4af37]/30 rounded-full blur-lg group-hover:blur-xl transition-all duration-300 scale-100 group-hover:scale-125" />
+            <div className="absolute inset-0 bg-[#ffff00]/30 rounded-full blur-lg group-hover:blur-xl transition-all duration-300 scale-100 group-hover:scale-125" />
             <svg
-              className="w-8 h-8 text-gray-400 group-hover:text-[#d4af37] transition-all duration-300 animate-bounce relative z-10 group-hover:scale-110"
+              className="w-8 h-8 text-gray-400 group-hover:text-[#ffff00] transition-all duration-300 animate-bounce relative z-10 group-hover:scale-110"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

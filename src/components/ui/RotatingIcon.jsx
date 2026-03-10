@@ -11,7 +11,7 @@ import React, { useRef, useEffect, useState } from 'react';
  * @param {React.ReactNode} props.children - SVG icon to rotate
  * @param {string} [props.rotationSpeed='10s'] - Duration for one full rotation (CSS time value)
  * @param {boolean} [props.pauseOnHover=true] - Whether to pause rotation on hover
- * @param {string} [props.glowColor='#3ce6f9'] - Color for the glow effect
+ * @param {string} [props.glowColor='#00f3ff'] - Color for the glow effect
  * @param {number} [props.size=48] - Size of the icon container in pixels
  * @param {boolean} [props.showGlow=true] - Whether to show the glow effect
  * @param {string} [props.className=''] - Additional CSS classes to apply
@@ -22,7 +22,7 @@ const RotatingIcon = ({
   children,
   rotationSpeed = '10s',
   pauseOnHover = true,
-  glowColor = '#3ce6f9',
+  glowColor = '#00f3ff',
   size = 48,
   showGlow = true,
   className = '',

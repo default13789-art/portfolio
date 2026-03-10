@@ -54,7 +54,7 @@ const LoadingState = ({ onComplete }) => {
   }, [progress, onComplete]);
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a0a0f]">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#050505]">
       {/* Animated Grid Background */}
       <div
         className="absolute inset-0 opacity-20"
@@ -69,9 +69,9 @@ const LoadingState = ({ onComplete }) => {
       />
 
       {/* Pulsing Orbs */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-[#3ce6f9] rounded-full blur-[100px] opacity-30 animate-pulse" />
-      <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#c084fc] rounded-full blur-[120px] opacity-30 animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#05b5d4] rounded-full blur-[150px] opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-20 left-20 w-32 h-32 bg-[#00f3ff] rounded-full blur-[100px] opacity-30 animate-pulse" />
+      <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#ff00ff] rounded-full blur-[120px] opacity-30 animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#00f3ff] rounded-full blur-[150px] opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
 
       {/* Main Loading Container */}
       <div className="relative z-10 w-full max-w-2xl px-8">
@@ -81,13 +81,13 @@ const LoadingState = ({ onComplete }) => {
             {/* Rotating Rings */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div
-                className="w-32 h-32 border-2 border-[#3ce6f9]/30 rounded-full animate-spin"
+                className="w-32 h-32 border-2 border-[#00f3ff]/30 rounded-full animate-spin"
                 style={{ animationDuration: '3s' }}
               />
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
               <div
-                className="w-24 h-24 border-2 border-[#c084fc]/30 rounded-full animate-spin"
+                className="w-24 h-24 border-2 border-[#ff00ff]/30 rounded-full animate-spin"
                 style={{ animationDuration: '2s', animationDirection: 'reverse' }}
               />
             </div>
@@ -102,7 +102,7 @@ const LoadingState = ({ onComplete }) => {
         {/* Loading Text with Typing Effect */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 px-6 py-3 glass-card rounded-lg">
-            <span className="text-[#3ce6f9] font-mono text-sm">&gt;</span>
+            <span className="text-[#00f3ff] font-mono text-sm">&gt;</span>
             <span className="text-gray-300 font-mono text-lg tracking-wider">{loadingText}</span>
             <span className="typing-cursor" />
           </div>
@@ -111,14 +111,14 @@ const LoadingState = ({ onComplete }) => {
         {/* Progress Bar Container */}
         <div className="relative">
           {/* Outer Glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#3ce6f9]/20 to-[#c084fc]/20 rounded-lg blur-lg" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00f3ff]/20 to-[#ff00ff]/20 rounded-lg blur-lg" />
 
           {/* Progress Bar Background */}
           <div className="relative glass-card rounded-lg p-6">
             {/* Progress Info */}
             <div className="flex justify-between items-center mb-4">
               <span className="text-gray-400 text-sm font-mono">SYSTEM STATUS</span>
-              <span className="text-[#3ce6f9] font-mono text-lg font-bold">{Math.round(progress)}%</span>
+              <span className="text-[#00f3ff] font-mono text-lg font-bold">{Math.round(progress)}%</span>
             </div>
 
             {/* Progress Bar Track */}
@@ -133,7 +133,7 @@ const LoadingState = ({ onComplete }) => {
 
               {/* Progress Fill */}
               <div
-                className="relative h-full bg-gradient-to-r from-[#05b5d4] via-[#3ce6f9] to-[#c084fc] rounded-full transition-all duration-100 ease-out"
+                className="relative h-full bg-gradient-to-r from-[#00f3ff] via-[#00f3ff] to-[#ff00ff] rounded-full transition-all duration-100 ease-out"
                 style={{ width: `${progress}%` }}
               >
                 {/* Shimmer Effect */}
@@ -167,7 +167,7 @@ const LoadingState = ({ onComplete }) => {
                 {[...Array(8)].map((_, j) => (
                   <div
                     key={j}
-                    className="flex-1 bg-gradient-to-t from-[#3ce6f9] to-[#c084fc] rounded-sm transition-all duration-300"
+                    className="flex-1 bg-gradient-to-t from-[#00f3ff] to-[#ff00ff] rounded-sm transition-all duration-300"
                     style={{
                       height: `${Math.random() * 100}%`,
                       opacity: 0.3 + Math.random() * 0.7,
@@ -230,7 +230,7 @@ const LoadingState = ({ onComplete }) => {
           display: inline-block;
           width: 3px;
           height: 1.2em;
-          background-color: #3ce6f9;
+          background-color: #00f3ff;
           margin-left: 4px;
           animation: blink 1s infinite;
           vertical-align: text-bottom;

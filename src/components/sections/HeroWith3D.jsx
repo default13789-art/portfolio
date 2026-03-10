@@ -25,13 +25,13 @@ const HeroWith3D = () => {
       />
 
       {/* Subtle gradient overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0f]/50 to-[#0a0a0f] z-1 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/50 to-[#050505] z-1 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 section-container">
         <div className="max-w-4xl mx-auto text-center">
           {/* Greeting */}
-          <p className="text-[#3ce6f9] font-semibold mb-4 animate-fade-in">
+          <p className="text-[#00f3ff] font-semibold mb-4 animate-fade-in">
             Hello, I'm
           </p>
 
@@ -77,7 +77,7 @@ const HeroWith3D = () => {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#3ce6f9] transition-colors transform hover:scale-110"
+                className="text-gray-400 hover:text-[#00f3ff] transition-colors transform hover:scale-110"
                 aria-label={platform}
               >
                 {platform === 'github' && (

@@ -47,7 +47,7 @@ const CyberpunkClock = () => {
       {/* Main Clock Widget */}
       <div className="relative group cursor-pointer transition-all duration-300">
         {/* Clock Display */}
-        <div className="relative bg-gradient-to-br from-[#0a0a0f] to-[#1a1a2e] border border-cyan-500/30 rounded-lg p-3 overflow-hidden shadow-lg shadow-cyan-500/10">
+        <div className="relative bg-gradient-to-br from-[#050505] to-[#1a1a2e] border border-cyan-500/30 rounded-lg p-3 overflow-hidden shadow-lg shadow-cyan-500/10">
           {/* Scanline Effect */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="scanline"></div>

@@ -12,7 +12,7 @@ export default function FloatingShapesExample() {
   return (
     <Canvas
       camera={{ position: [0, 5, 30], fov: 50 }}
-      style={{ background: '#0a0a0f' }}
+      style={{ background: '#050505' }}
     >
       {/* Ambient light for subtle overall illumination */}
       <ambientLight intensity={0.3} />

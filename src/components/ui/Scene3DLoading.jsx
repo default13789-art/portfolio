@@ -17,7 +17,7 @@ const Scene3DLoading = () => {
         {/* Loading spinner */}
         <div className="relative">
           <div
-            className="w-12 h-12 border-4 border-[#3ce6f9]/20 border-t-[#3ce6f9] rounded-full animate-spin"
+            className="w-12 h-12 border-4 border-[#00f3ff]/20 border-t-[#00f3ff] rounded-full animate-spin"
             style={{
               boxShadow: '0 0 20px rgba(60, 230, 249, 0.3)'
             }}
@@ -25,7 +25,7 @@ const Scene3DLoading = () => {
         </div>
 
         {/* Loading text */}
-        <p className="text-[#3ce6f9] text-sm animate-pulse">
+        <p className="text-[#00f3ff] text-sm animate-pulse">
           Loading 3D Experience...
         </p>
       </div>

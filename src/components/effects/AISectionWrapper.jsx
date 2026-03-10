@@ -119,10 +119,10 @@ const MinimalAISection = ({
 
       {/* Corner accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-4 left-4 w-8 h-8 border-l border-t border-[#3ce6f9]/20" />
-        <div className="absolute top-4 right-4 w-8 h-8 border-r border-t border-[#3ce6f9]/20" />
-        <div className="absolute bottom-4 left-4 w-8 h-8 border-l border-b border-[#3ce6f9]/20" />
-        <div className="absolute bottom-4 right-4 w-8 h-8 border-r border-b border-[#3ce6f9]/20" />
+        <div className="absolute top-4 left-4 w-8 h-8 border-l border-t border-[#00f3ff]/20" />
+        <div className="absolute top-4 right-4 w-8 h-8 border-r border-t border-[#00f3ff]/20" />
+        <div className="absolute bottom-4 left-4 w-8 h-8 border-l border-b border-[#00f3ff]/20" />
+        <div className="absolute bottom-4 right-4 w-8 h-8 border-r border-b border-[#00f3ff]/20" />
       </div>
 
       {/* Content */}

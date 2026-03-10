@@ -20,7 +20,7 @@ export default function NeuralNetworkExample() {
     <Canvas
       camera={{ position: [0, 0, 35], fov: 60 }}
       gl={{ antialias: true, alpha: true }}
-      style={{ background: '#0a0a0f' }}
+      style={{ background: '#050505' }}
     >
       {/* Background starfield for depth */}
       <Stars count={3000} />

@@ -15,7 +15,7 @@ import AnimatedProgressBar from './AnimatedProgressBar';
  * @param {string} props.title - Category title
  * @param {string} [props.description] - Category description
  * @param {Array<{name: string, level: number, color?: string}>} props.skills - Array of skills with levels
- * @param {string} [props.glowColor='#3ce6f9'] - Color for glow effects
+ * @param {string} [props.glowColor='#00f3ff'] - Color for glow effects
  * @param {number} [props.delay=0] - Entrance animation delay in milliseconds
  * @param {number} [props.iconSize=48] - Size of the rotating icon
  * @param {string} [props.rotationSpeed='10s'] - Rotation speed for the icon
@@ -29,7 +29,7 @@ const SkillCard = ({
   title,
   description,
   skills = [],
-  glowColor = '#3ce6f9',
+  glowColor = '#00f3ff',
   delay = 0,
   iconSize = 48,
   rotationSpeed = '10s',
@@ -118,7 +118,7 @@ const SkillCard = ({
                 <h3
                   className="text-xl font-bold mb-1"
                   style={{
-                    background: `linear-gradient(135deg, ${glowColor}, #a855f7)`,
+                    background: `linear-gradient(135deg, ${glowColor}, #ff00ff)`,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',

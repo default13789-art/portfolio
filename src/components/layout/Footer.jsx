@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0a0a0f] border-t border-white/[0.06] mt-20 relative overflow-hidden">
+    <footer className="bg-[#050505] border-t border-white/[0.06] mt-20 relative overflow-hidden">
       {/* Hex grid bg */}
       <div className="absolute inset-0 hex-grid-bg pointer-events-none opacity-20" />
 
@@ -20,17 +20,17 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-3">
               {/* Mini NN logo */}
               <svg width="24" height="24" viewBox="0 0 50 50" fill="none">
-                <circle cx="7" cy="13" r="3.5" fill="#3ce6f9" opacity="0.9" />
-                <circle cx="7" cy="25" r="3.5" fill="#3ce6f9" opacity="0.9" />
-                <circle cx="7" cy="37" r="3.5" fill="#3ce6f9" opacity="0.9" />
+                <circle cx="7" cy="13" r="3.5" fill="#00f3ff" opacity="0.9" />
+                <circle cx="7" cy="25" r="3.5" fill="#00f3ff" opacity="0.9" />
+                <circle cx="7" cy="37" r="3.5" fill="#00f3ff" opacity="0.9" />
                 <circle cx="25" cy="10" r="4"  fill="#818cf8" opacity="0.9" />
                 <circle cx="25" cy="25" r="5"  fill="#818cf8" opacity="0.9" />
                 <circle cx="25" cy="40" r="4"  fill="#818cf8" opacity="0.9" />
-                <circle cx="43" cy="18" r="3.5" fill="#a855f7" opacity="0.9" />
-                <circle cx="43" cy="32" r="3.5" fill="#a855f7" opacity="0.9" />
-                <line x1="7" y1="25" x2="25" y2="25" stroke="#3ce6f9" strokeWidth="1" strokeOpacity="0.4" />
-                <line x1="25" y1="25" x2="43" y2="18" stroke="#a855f7" strokeWidth="1" strokeOpacity="0.4" />
-                <line x1="25" y1="25" x2="43" y2="32" stroke="#a855f7" strokeWidth="1" strokeOpacity="0.4" />
+                <circle cx="43" cy="18" r="3.5" fill="#ff00ff" opacity="0.9" />
+                <circle cx="43" cy="32" r="3.5" fill="#ff00ff" opacity="0.9" />
+                <line x1="7" y1="25" x2="25" y2="25" stroke="#00f3ff" strokeWidth="1" strokeOpacity="0.4" />
+                <line x1="25" y1="25" x2="43" y2="18" stroke="#ff00ff" strokeWidth="1" strokeOpacity="0.4" />
+                <line x1="25" y1="25" x2="43" y2="32" stroke="#ff00ff" strokeWidth="1" strokeOpacity="0.4" />
               </svg>
               <h3 className="text-xl font-bold gradient-text">omik.eth</h3>
             </div>
@@ -54,9 +54,9 @@ const Footer = () => {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="flex items-center gap-2 text-gray-400 hover:text-[#3ce6f9] transition-colors text-sm group"
+                    className="flex items-center gap-2 text-gray-400 hover:text-[#00f3ff] transition-colors text-sm group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-[#3ce6f9]/30 group-hover:bg-[#3ce6f9] transition-colors" />
+                    <span className="w-1 h-1 rounded-full bg-[#00f3ff]/30 group-hover:bg-[#00f3ff] transition-colors" />
                     {link}
                   </a>
                 </li>
@@ -76,7 +76,7 @@ const Footer = () => {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.07] text-gray-400 hover:text-[#3ce6f9] hover:border-[#3ce6f9]/30 hover:bg-[#3ce6f9]/5 transition-all text-xs font-medium"
+                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.07] text-gray-400 hover:text-[#00f3ff] hover:border-[#00f3ff]/30 hover:bg-[#00f3ff]/5 transition-all text-xs font-medium"
                   aria-label={platform}
                 >
                   {platform === 'github' && (
@@ -112,9 +112,9 @@ const Footer = () => {
           <div className="flex items-center gap-4 text-xs font-mono text-gray-600">
             <span>Built with React + Vite</span>
             <span className="w-1 h-1 rounded-full bg-gray-700" />
-            <span className="text-[#3ce6f9]/50">Powered by AI</span>
+            <span className="text-[#00f3ff]/50">Powered by AI</span>
             <span className="w-1 h-1 rounded-full bg-gray-700" />
-            <span className="text-[#a855f7]/50">Decentralized</span>
+            <span className="text-[#ff00ff]/50">Decentralized</span>
           </div>
         </div>
       </div>

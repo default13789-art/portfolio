@@ -43,7 +43,7 @@ const EnhancedHeroExample = () => {
             {/* Glassmorphism card with hover effect */}
             <HoverCard className="glass-card p-8 md:p-12 lg:p-16 text-center">
               {/* Greeting with code-like styling */}
-              <p className="text-[#3ce6f9] font-mono text-sm mb-4">
+              <p className="text-[#00f3ff] font-mono text-sm mb-4">
                 <span className="opacity-50">&lt;system&gt;</span>
                 <span className="ml-2">Hello, I'm</span>
                 <span className="opacity-50 ml-2">&lt;/system&gt;</span>
@@ -56,12 +56,12 @@ const EnhancedHeroExample = () => {
 
               {/* Role with typing cursor */}
               <div className="heading-lg text-gray-200 mb-6 flex items-center justify-center gap-2">
-                <span className="text-[#3ce6f9]">&lt;</span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3ce6f9] to-[#c084fc]">
+                <span className="text-[#00f3ff]">&lt;</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f3ff] to-[#ff00ff]">
                   AI Automation Engineer
                 </span>
                 <span className="typing-cursor" />
-                <span className="text-[#3ce6f9]">/&gt;</span>
+                <span className="text-[#00f3ff]">/&gt;</span>
               </div>
 
               {/* Tagline */}
@@ -71,7 +71,7 @@ const EnhancedHeroExample = () => {
 
               {/* CTA Buttons with tech styling */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="group relative px-8 py-4 bg-gradient-to-r from-[#05b5d4] to-[#a855f7] text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105">
+                <button className="group relative px-8 py-4 bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105">
                   {/* Shimmer effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
 
@@ -83,7 +83,7 @@ const EnhancedHeroExample = () => {
                   </span>
                 </button>
 
-                <button className="px-8 py-4 bg-transparent border-2 border-[#05b5d4] text-[#3ce6f9] font-semibold rounded-lg hover:bg-[#05b5d4]/10 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(60,230,249,0.4)]">
+                <button className="px-8 py-4 bg-transparent border-2 border-[#00f3ff] text-[#00f3ff] font-semibold rounded-lg hover:bg-[#00f3ff]/10 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(60,230,249,0.4)]">
                   <span className="flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

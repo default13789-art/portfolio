@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary-dark': '#1A1A2E',
-        'gold-luster': '#D4AF37',
-        'sapphire-blue': '#1E40AF',
-        'deep-amethyst': '#6B46C1',
-        'emerald-success': '#10B981',
+        'primary-dark': '#050505',
+        'gold-luster': '#ffff00',
+        'sapphire-blue': '#00f3ff',
+        'deep-amethyst': '#ff00ff',
+        'emerald-success': '#00ff41',
         'text-primary': '#FFFFFF',
         'text-secondary': '#d1d5db',
         'text-muted': '#9CA3AF',
@@ -96,10 +96,10 @@ export default {
         xs: '2px',
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(30, 64, 175, 0.5)',
-        'glow-lg': '0 0 40px rgba(30, 64, 175, 0.6)',
-        'purple-glow': '0 0 20px rgba(107, 70, 193, 0.5)',
-        'gold-glow': '0 0 20px rgba(212, 175, 55, 0.5)',
+        'glow': '0 0 20px rgba(0, 243, 255, 0.5)',
+        'glow-lg': '0 0 40px rgba(0, 243, 255, 0.6)',
+        'purple-glow': '0 0 20px rgba(255, 0, 255, 0.5)',
+        'gold-glow': '0 0 20px rgba(255, 255, 0, 0.5)',
       },
     },
   },

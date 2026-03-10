@@ -45,7 +45,7 @@ const Skills = () => {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-96 h-96 bg-[#05b5d4]/5 rounded-full blur-3xl -top-48 -left-48"
+          className="absolute w-96 h-96 bg-[#00f3ff]/5 rounded-full blur-3xl -top-48 -left-48"
           style={{
             animation: 'float 20s ease-in-out infinite',
           }}
@@ -167,7 +167,7 @@ const SkillCard = ({ category, index, isVisible }) => {
       <div
         className="absolute inset-0 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(45deg, #1E40AF, #6B46C1, #1E40AF)',
+          background: 'linear-gradient(45deg, #00f3ff, #ff00ff, #00f3ff)',
           backgroundSize: '200% 200%',
           animation: isHovered ? 'gradientShift 3s ease infinite' : 'none',
           filter: 'blur(8px)',
@@ -211,13 +211,13 @@ const SkillCard = ({ category, index, isVisible }) => {
                 </span>
                 <span className="text-gray-300 font-medium text-sm">{skill.name}</span>
               </span>
-              <span className="font-semibold text-sm" style={{ color: '#1E40AF' }}>
+              <span className="font-semibold text-sm" style={{ color: '#00f3ff' }}>
                 {progressBarsVisible ? skill.level : 0}%
               </span>
             </div>
             <AnimatedProgressBar
               percentage={skill.level}
-              color="#1E40AF"
+              color="#00f3ff"
               duration={1200}
               height={8}
               showPercentage={false}

@@ -46,13 +46,13 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="section-padding bg-[#0a0a0f] relative overflow-hidden"
+      className="section-padding bg-[#050505] relative overflow-hidden"
       ref={sectionRef}
       aria-label="Projects section"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="glow-orb w-96 h-96 bg-[#05b5d4]/20 top-20 -left-48"></div>
+        <div className="glow-orb w-96 h-96 bg-[#00f3ff]/20 top-20 -left-48"></div>
         <div className="glow-orb w-96 h-96 bg-deep-amethyst/20 bottom-20 -right-48"></div>
       </div>
 
@@ -123,7 +123,7 @@ const Projects = () => {
             >
               <TiltCard
                 tiltIntensity={isMobile ? 4 : 12}
-                glowColor={index % 2 === 0 ? '#1E40AF' : '#6B46C1'}
+                glowColor={index % 2 === 0 ? '#00f3ff' : '#ff00ff'}
                 className="group h-full"
               >
                 {/* Project Image */}
@@ -144,7 +144,7 @@ const Projects = () => {
                   />
                   <div className="project-image-overlay"></div>
                   <div className="project-image-shine"></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80"></div>
 
                   {/* NFT Rarity Badge */}
                   <div className="absolute top-3 left-3 z-10">
@@ -182,7 +182,7 @@ const Projects = () => {
                     {project.tech.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="tech-tag inline-flex items-center gap-1 px-2.5 py-0.5 bg-[#0a0a0f] text-sapphire-blue text-xs font-mono rounded-md border border-sapphire-blue/15 hover:border-sapphire-blue/35 hover:bg-sapphire-blue/5 cursor-default transition-all"
+                        className="tech-tag inline-flex items-center gap-1 px-2.5 py-0.5 bg-[#050505] text-sapphire-blue text-xs font-mono rounded-md border border-sapphire-blue/15 hover:border-sapphire-blue/35 hover:bg-sapphire-blue/5 cursor-default transition-all"
                       >
                         <span className="w-1 h-1 rounded-full bg-sapphire-blue/60" />
                         {tech}

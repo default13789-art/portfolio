@@ -61,21 +61,21 @@ export const RotatingIconExample = () => {
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M9.5 2C9.5 2 9.5 2 9.5 2C9.5 2 9.5 2 9.5 2C9.5 2 9.5 2 9.5 2C9.5 2 9.5 2 9.5 2Z"
-        stroke="#3ce6f9"
+        stroke="#00f3ff"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M12 2C12 2 12 2 12 2C12 2 12 2 12 2C12 2 12 2 12 2C12 2 12 2 12 2Z"
-        stroke="#3ce6f9"
+        stroke="#00f3ff"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="12" cy="12" r="3" stroke="#3ce6f9" strokeWidth="2" />
-      <path d="M12 15V22M9 22H15" stroke="#3ce6f9" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="12" cy="8" r="5" stroke="#3ce6f9" strokeWidth="2" />
+      <circle cx="12" cy="12" r="3" stroke="#00f3ff" strokeWidth="2" />
+      <path d="M12 15V22M9 22H15" stroke="#00f3ff" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="12" cy="8" r="5" stroke="#00f3ff" strokeWidth="2" />
     </svg>
   );
 
@@ -83,14 +83,14 @@ export const RotatingIconExample = () => {
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M16 18L22 12L16 6"
-        stroke="#a855f7"
+        stroke="#ff00ff"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M8 6L2 12L8 18"
-        stroke="#a855f7"
+        stroke="#ff00ff"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -160,21 +160,21 @@ export const SkillCardExample = () => {
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M12 2L2 7L12 12L22 7L12 2Z"
-        stroke="#3ce6f9"
+        stroke="#00f3ff"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M2 17L12 22L22 17"
-        stroke="#3ce6f9"
+        stroke="#00f3ff"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M2 12L12 17L22 12"
-        stroke="#3ce6f9"
+        stroke="#00f3ff"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -184,9 +184,9 @@ export const SkillCardExample = () => {
 
   const WebDevIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="10" stroke="#a855f7" strokeWidth="2" />
-      <path d="M2 12H22" stroke="#a855f7" strokeWidth="2" />
-      <path d="M12 2C12 2 12 12 12 22" stroke="#a855f7" strokeWidth="2" />
+      <circle cx="12" cy="12" r="10" stroke="#ff00ff" strokeWidth="2" />
+      <path d="M2 12H22" stroke="#ff00ff" strokeWidth="2" />
+      <path d="M12 2C12 2 12 12 12 22" stroke="#ff00ff" strokeWidth="2" />
     </svg>
   );
 
@@ -212,7 +212,7 @@ export const SkillCardExample = () => {
           icon={<AIIcon />}
           title="AI & Machine Learning"
           description="Building intelligent systems with cutting-edge technologies"
-          glowColor="#3ce6f9"
+          glowColor="#00f3ff"
           delay={0}
           skills={[
             { name: 'TensorFlow', level: 90 },
@@ -227,7 +227,7 @@ export const SkillCardExample = () => {
           icon={<WebDevIcon />}
           title="Web Development"
           description="Modern web applications with React and Next.js"
-          glowColor="#a855f7"
+          glowColor="#ff00ff"
           delay={100}
           rotationSpeed="15s"
           skills={[
@@ -262,7 +262,7 @@ export const SkillCardExample = () => {
           glowColor="#ff6b6b"
           delay={300}
           skills={[
-            { name: 'Python', level: 95, color: '#3ce6f9' },
+            { name: 'Python', level: 95, color: '#00f3ff' },
             { name: 'JavaScript', level: 92, color: '#ffe66d' },
             { name: 'TypeScript', level: 88, color: '#4ecdc4' },
             { name: 'Go', level: 75, color: '#ff6b6b' },
@@ -314,7 +314,7 @@ export const SkillsSectionExample = () => {
       icon: <AIIcon />,
       title: 'AI & Machine Learning',
       description: 'Expertise in building intelligent systems',
-      glowColor: '#3ce6f9',
+      glowColor: '#00f3ff',
       skills: [
         { name: 'TensorFlow', level: 90 },
         { name: 'PyTorch', level: 85 },
@@ -327,7 +327,7 @@ export const SkillsSectionExample = () => {
       icon: <WebDevIcon />,
       title: 'Web Development',
       description: 'Full-stack modern web applications',
-      glowColor: '#a855f7',
+      glowColor: '#ff00ff',
       skills: [
         { name: 'React', level: 95 },
         { name: 'Next.js', level: 90 },
@@ -344,7 +344,7 @@ export const SkillsSectionExample = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="heading-lg gradient-text mb-4">Skills & Expertise</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#05b5d4] to-[#a855f7] mx-auto rounded-full mb-6" />
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] mx-auto rounded-full mb-6" />
           <p className="body-text max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
@@ -369,7 +369,7 @@ export const SkillsSectionExample = () => {
         <div className="mt-16 text-center">
           <p className="text-gray-400 text-lg">
             Always learning and exploring new technologies.{' '}
-            <span className="text-[#3ce6f9]">Current focus:</span> AI/ML
+            <span className="text-[#00f3ff]">Current focus:</span> AI/ML
             integration and advanced frontend architectures.
           </p>
         </div>
@@ -389,7 +389,7 @@ export const MinimalExample = () => {
       <div className="mt-8">
         <RotatingIcon>
           <svg viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" stroke="#3ce6f9" strokeWidth="2" />
+            <circle cx="12" cy="12" r="10" stroke="#00f3ff" strokeWidth="2" />
           </svg>
         </RotatingIcon>
       </div>
@@ -399,7 +399,7 @@ export const MinimalExample = () => {
         <SkillCard
           icon={
             <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#a855f7" strokeWidth="2" />
+              <circle cx="12" cy="12" r="10" stroke="#ff00ff" strokeWidth="2" />
             </svg>
           }
           title="My Category"

@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0a0a0f]/80 backdrop-blur-lg border-b border-white/10 shadow-lg'
+          ? 'bg-[#050505]/80 backdrop-blur-lg border-b border-white/10 shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -63,7 +63,7 @@ const Navbar = () => {
                 {/* 3D sphere gradient — input layer (cyan) */}
                 <radialGradient id="sph-in" cx="33%" cy="28%" r="67%" fx="33%" fy="28%">
                   <stop offset="0%"   stopColor="#c8faff" />
-                  <stop offset="30%"  stopColor="#1E40AF" />
+                  <stop offset="30%"  stopColor="#00f3ff" />
                   <stop offset="75%"  stopColor="#0b6e80" />
                   <stop offset="100%" stopColor="#02242b" />
                 </radialGradient>
@@ -77,19 +77,19 @@ const Navbar = () => {
                 {/* 3D sphere gradient — output layer (purple) */}
                 <radialGradient id="sph-out" cx="33%" cy="28%" r="67%" fx="33%" fy="28%">
                   <stop offset="0%"   stopColor="#f3d4ff" />
-                  <stop offset="30%"  stopColor="#6B46C1" />
+                  <stop offset="30%"  stopColor="#ff00ff" />
                   <stop offset="75%"  stopColor="#6b21a8" />
                   <stop offset="100%" stopColor="#200838" />
                 </radialGradient>
                 {/* Connection line gradient L→R */}
                 <linearGradient id="conn-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stopColor="#1E40AF" stopOpacity="0.55" />
+                  <stop offset="0%"   stopColor="#00f3ff" stopOpacity="0.55" />
                   <stop offset="100%" stopColor="#818cf8" stopOpacity="0.55" />
                 </linearGradient>
                 {/* Connection line gradient M→R */}
                 <linearGradient id="conn-2" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%"   stopColor="#818cf8" stopOpacity="0.55" />
-                  <stop offset="100%" stopColor="#6B46C1" stopOpacity="0.55" />
+                  <stop offset="100%" stopColor="#ff00ff" stopOpacity="0.55" />
                 </linearGradient>
                 {/* Node glow filter */}
                 <filter id="nd-glow" x="-70%" y="-70%" width="240%" height="240%">
@@ -109,7 +109,7 @@ const Navbar = () => {
                 </filter>
                 {/* Drop shadow for whole icon */}
                 <filter id="icon-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#1E40AF" floodOpacity="0.35" />
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#00f3ff" floodOpacity="0.35" />
                 </filter>
               </defs>
 
@@ -147,7 +147,7 @@ const Navbar = () => {
 
                 {/* ── SIGNAL DOTS (animateMotion along key paths) ── */}
                 {/* Signal 1: A → E */}
-                <circle r="1.5" fill="#1E40AF" filter="url(#sig-glow)">
+                <circle r="1.5" fill="#00f3ff" filter="url(#sig-glow)">
                   <animateMotion dur="1.9s" repeatCount="indefinite" begin="0s"
                     path="M7,13 L25,25" />
                   <animate attributeName="opacity" values="0;1;1;0" dur="1.9s" repeatCount="indefinite" begin="0s" />
@@ -159,13 +159,13 @@ const Navbar = () => {
                   <animate attributeName="opacity" values="0;0.9;0.9;0" dur="2.4s" repeatCount="indefinite" begin="0.8s" />
                 </circle>
                 {/* Signal 3: E → G */}
-                <circle r="1.5" fill="#6B46C1" filter="url(#sig-glow)">
+                <circle r="1.5" fill="#ff00ff" filter="url(#sig-glow)">
                   <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.5s"
                     path="M25,25 L43,18" />
                   <animate attributeName="opacity" values="0;1;1;0" dur="1.6s" repeatCount="indefinite" begin="1.5s" />
                 </circle>
                 {/* Signal 4: C → F */}
-                <circle r="1.2" fill="#1E40AF" filter="url(#sig-glow)">
+                <circle r="1.2" fill="#00f3ff" filter="url(#sig-glow)">
                   <animateMotion dur="2.1s" repeatCount="indefinite" begin="2.2s"
                     path="M7,37 L25,40" />
                   <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.1s" repeatCount="indefinite" begin="2.2s" />
@@ -281,7 +281,7 @@ const Navbar = () => {
         {/* Mobile Navigation - Full Screen Overlay */}
         {isMobileMenuOpen && (
           <div
-            className="md:hidden fixed inset-0 top-16 bg-[#0a0a0f]/95 backdrop-blur-xl animate-fade-in"
+            className="md:hidden fixed inset-0 top-16 bg-[#050505]/95 backdrop-blur-xl animate-fade-in"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"

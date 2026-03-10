@@ -58,10 +58,10 @@ export const DataBars = ({ count = 10, className = '' }) => (
 // Status Indicator
 export const StatusIndicator = ({ status = 'online', text }) => {
   const statusColors = {
-    online: '#3ce6f9',
+    online: '#00f3ff',
     offline: '#ef4444',
     busy: '#f59e0b',
-    processing: '#a855f7'
+    processing: '#ff00ff'
   };
 
   return (
@@ -89,14 +89,14 @@ export const AnimatedBorder = ({ children, className = '' }) => (
 export const HUDLines = () => (
   <div className="absolute inset-0 pointer-events-none overflow-hidden">
     {/* Horizontal lines */}
-    <div className="absolute top-[25%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3ce6f9]/30 to-transparent" />
-    <div className="absolute top-[50%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c084fc]/30 to-transparent" />
-    <div className="absolute top-[75%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3ce6f9]/30 to-transparent" />
+    <div className="absolute top-[25%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00f3ff]/30 to-transparent" />
+    <div className="absolute top-[50%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ff00ff]/30 to-transparent" />
+    <div className="absolute top-[75%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00f3ff]/30 to-transparent" />
 
     {/* Vertical lines */}
-    <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-[#c084fc]/30 to-transparent" />
-    <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-[#3ce6f9]/30 to-transparent" />
-    <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-[#c084fc]/30 to-transparent" />
+    <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-[#ff00ff]/30 to-transparent" />
+    <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-[#00f3ff]/30 to-transparent" />
+    <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-[#ff00ff]/30 to-transparent" />
   </div>
 );
 
@@ -116,7 +116,7 @@ export const GridOverlay = ({ size = 50, opacity = 0.1 }) => (
 
 // Code Snippet Decoration
 export const CodeSnippet = ({ code = 'const ai = new Future();' }) => (
-  <div className="font-mono text-xs text-[#3ce6f9]/40 select-none pointer-events-none">
+  <div className="font-mono text-xs text-[#00f3ff]/40 select-none pointer-events-none">
     {code}
   </div>
 );
@@ -127,7 +127,7 @@ export const MetricsDisplay = ({ metrics = [] }) => (
     {metrics.map((metric, i) => (
       <div key={i} className="flex items-center gap-2">
         <span className="text-gray-500">{metric.label}:</span>
-        <span className="text-[#3ce6f9]">{metric.value}</span>
+        <span className="text-[#00f3ff]">{metric.value}</span>
       </div>
     ))}
   </div>
@@ -152,23 +152,23 @@ export const TargetReticle = ({ size = 100 }) => (
     style={{ width: size, height: size }}
   >
     {/* Outer circle */}
-    <div className="absolute inset-0 border border-[#3ce6f9]/30 rounded-full animate-pulse" />
+    <div className="absolute inset-0 border border-[#00f3ff]/30 rounded-full animate-pulse" />
 
     {/* Inner circle */}
     <div
-      className="absolute inset-[20%] border border-[#c084fc]/30 rounded-full"
+      className="absolute inset-[20%] border border-[#ff00ff]/30 rounded-full"
       style={{ animation: 'pulse 2s ease-in-out infinite' }}
     />
 
     {/* Crosshairs */}
-    <div className="absolute top-1/2 left-0 right-0 h-px bg-[#3ce6f9]/20 -translate-y-1/2" />
-    <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#3ce6f9]/20 -translate-x-1/2" />
+    <div className="absolute top-1/2 left-0 right-0 h-px bg-[#00f3ff]/20 -translate-y-1/2" />
+    <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#00f3ff]/20 -translate-x-1/2" />
 
     {/* Corner brackets */}
-    <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-[#3ce6f9]/40" />
-    <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-[#3ce6f9]/40" />
-    <div className="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-[#3ce6f9]/40" />
-    <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-[#3ce6f9]/40" />
+    <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-[#00f3ff]/40" />
+    <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-[#00f3ff]/40" />
+    <div className="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-[#00f3ff]/40" />
+    <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-[#00f3ff]/40" />
   </div>
 );
 
@@ -205,13 +205,13 @@ export const ProgressRing = ({ progress = 75, size = 60, strokeWidth = 4 }) => {
         />
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#3ce6f9" />
-            <stop offset="100%" stopColor="#c084fc" />
+            <stop offset="0%" stopColor="#00f3ff" />
+            <stop offset="100%" stopColor="#ff00ff" />
           </linearGradient>
         </defs>
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-xs font-mono text-[#3ce6f9]">{progress}%</span>
+        <span className="text-xs font-mono text-[#00f3ff]">{progress}%</span>
       </div>
     </div>
   );
@@ -222,19 +222,19 @@ export const AISpinner = ({ size = 40 }) => (
   <div className="relative" style={{ width: size, height: size }}>
     {/* Outer ring */}
     <div
-      className="absolute inset-0 border-2 border-transparent border-t-[#3ce6f9] rounded-full animate-spin"
+      className="absolute inset-0 border-2 border-transparent border-t-[#00f3ff] rounded-full animate-spin"
       style={{ animationDuration: '1s' }}
     />
 
     {/* Middle ring */}
     <div
-      className="absolute inset-2 border-2 border-transparent border-t-[#c084fc] rounded-full animate-spin"
+      className="absolute inset-2 border-2 border-transparent border-t-[#ff00ff] rounded-full animate-spin"
       style={{ animationDuration: '1.5s', animationDirection: 'reverse' }}
     />
 
     {/* Inner dot */}
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="w-2 h-2 bg-[#3ce6f9] rounded-full animate-pulse" />
+      <div className="w-2 h-2 bg-[#00f3ff] rounded-full animate-pulse" />
     </div>
   </div>
 );

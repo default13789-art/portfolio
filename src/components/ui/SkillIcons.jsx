@@ -39,15 +39,15 @@ const icons = {
   ),
   'Computer Vision': (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="#a855f7" strokeWidth="1.5"/>
-      <circle cx="12" cy="12" r="3.5" stroke="#a855f7" strokeWidth="1.5"/>
-      <circle cx="12" cy="12" r="1.2" fill="#a855f7"/>
+      <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="#ff00ff" strokeWidth="1.5"/>
+      <circle cx="12" cy="12" r="3.5" stroke="#ff00ff" strokeWidth="1.5"/>
+      <circle cx="12" cy="12" r="1.2" fill="#ff00ff"/>
     </svg>
   ),
   'NLP/LLMs': (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="3" y="5" width="18" height="14" rx="2" stroke="#3ce6f9" strokeWidth="1.5"/>
-      <path d="M7 9h10M7 12h6M7 15h8" stroke="#3ce6f9" strokeWidth="1.5" strokeLinecap="round"/>
+      <rect x="3" y="5" width="18" height="14" rx="2" stroke="#00f3ff" strokeWidth="1.5"/>
+      <path d="M7 9h10M7 12h6M7 15h8" stroke="#00f3ff" strokeWidth="1.5" strokeLinecap="round"/>
     </svg>
   ),
 
@@ -73,15 +73,15 @@ const icons = {
   ),
   'Chain-of-Thought': (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="5" cy="12" r="2.5" stroke="#3ce6f9" strokeWidth="1.5"/>
-      <circle cx="12" cy="12" r="2.5" stroke="#a855f7" strokeWidth="1.5"/>
+      <circle cx="5" cy="12" r="2.5" stroke="#00f3ff" strokeWidth="1.5"/>
+      <circle cx="12" cy="12" r="2.5" stroke="#ff00ff" strokeWidth="1.5"/>
       <circle cx="19" cy="12" r="2.5" stroke="#00ff88" strokeWidth="1.5"/>
-      <path d="M7.5 12h2M14.5 12h2" stroke="#3ce6f9" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M7.5 12h2M14.5 12h2" stroke="#00f3ff" strokeWidth="1.5" strokeLinecap="round"/>
     </svg>
   ),
   'Few-Shot Learning': (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 6h4v4H4zM10 6h4v4h-4zM4 14h4v4H4z" stroke="#a855f7" strokeWidth="1.5" rx="1"/>
+      <path d="M4 6h4v4H4zM10 6h4v4h-4zM4 14h4v4H4z" stroke="#ff00ff" strokeWidth="1.5" rx="1"/>
       <path d="M14 16l3 3 3-5" stroke="#00ff88" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
@@ -114,9 +114,9 @@ const icons = {
   ),
   'API Integration': (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="7" width="8" height="10" rx="1.5" stroke="#3ce6f9" strokeWidth="1.5"/>
-      <rect x="14" y="7" width="8" height="10" rx="1.5" stroke="#a855f7" strokeWidth="1.5"/>
-      <path d="M10 12h4M12 10l2 2-2 2" stroke="#3ce6f9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <rect x="2" y="7" width="8" height="10" rx="1.5" stroke="#00f3ff" strokeWidth="1.5"/>
+      <rect x="14" y="7" width="8" height="10" rx="1.5" stroke="#ff00ff" strokeWidth="1.5"/>
+      <path d="M10 12h4M12 10l2 2-2 2" stroke="#00f3ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
   'Workflow Automation': (
@@ -202,9 +202,9 @@ const icons = {
   'CI/CD': (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="5" cy="12" r="2.5" stroke="#00ff88" strokeWidth="1.5"/>
-      <circle cx="19" cy="6" r="2.5" stroke="#3ce6f9" strokeWidth="1.5"/>
-      <circle cx="19" cy="18" r="2.5" stroke="#a855f7" strokeWidth="1.5"/>
-      <path d="M7.5 12l9-6M7.5 12l9 6" stroke="#3ce6f9" strokeWidth="1.2" strokeLinecap="round"/>
+      <circle cx="19" cy="6" r="2.5" stroke="#00f3ff" strokeWidth="1.5"/>
+      <circle cx="19" cy="18" r="2.5" stroke="#ff00ff" strokeWidth="1.5"/>
+      <path d="M7.5 12l9-6M7.5 12l9 6" stroke="#00f3ff" strokeWidth="1.2" strokeLinecap="round"/>
     </svg>
   ),
   'Kubernetes': (
@@ -231,7 +231,7 @@ const icons = {
 const SkillIcon = ({ name, size = 18 }) => {
   const icon = icons[name] || (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 9l-3 3 3 3M16 9l3 3-3 3M13 6l-2 12" stroke="#3ce6f9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M8 9l-3 3 3 3M16 9l3 3-3 3M13 6l-2 12" stroke="#00f3ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 
@@ -257,30 +257,30 @@ const categoryLogos = {
     <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <radialGradient id="brain-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#3ce6f9" stopOpacity="0.25"/>
-          <stop offset="100%" stopColor="#3ce6f9" stopOpacity="0"/>
+          <stop offset="0%" stopColor="#00f3ff" stopOpacity="0.25"/>
+          <stop offset="100%" stopColor="#00f3ff" stopOpacity="0"/>
         </radialGradient>
       </defs>
       {/* glow disc */}
       <circle cx="24" cy="24" r="22" fill="url(#brain-glow)"/>
       {/* outer ring */}
-      <circle cx="24" cy="24" r="20" stroke="#3ce6f9" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="4 3"/>
+      <circle cx="24" cy="24" r="20" stroke="#00f3ff" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="4 3"/>
       {/* neural nodes */}
-      <circle cx="24" cy="10" r="3"  fill="#3ce6f9" fillOpacity="0.9"/>
+      <circle cx="24" cy="10" r="3"  fill="#00f3ff" fillOpacity="0.9"/>
       <circle cx="10" cy="20" r="3"  fill="#61DAFB" fillOpacity="0.9"/>
       <circle cx="38" cy="20" r="3"  fill="#61DAFB" fillOpacity="0.9"/>
-      <circle cx="15" cy="36" r="3"  fill="#a855f7" fillOpacity="0.9"/>
-      <circle cx="33" cy="36" r="3"  fill="#a855f7" fillOpacity="0.9"/>
-      <circle cx="24" cy="24" r="4"  fill="#3ce6f9"/>
+      <circle cx="15" cy="36" r="3"  fill="#ff00ff" fillOpacity="0.9"/>
+      <circle cx="33" cy="36" r="3"  fill="#ff00ff" fillOpacity="0.9"/>
+      <circle cx="24" cy="24" r="4"  fill="#00f3ff"/>
       {/* connections */}
-      <line x1="24" y1="10" x2="10" y2="20" stroke="#3ce6f9" strokeWidth="1.2" strokeOpacity="0.6"/>
-      <line x1="24" y1="10" x2="38" y2="20" stroke="#3ce6f9" strokeWidth="1.2" strokeOpacity="0.6"/>
+      <line x1="24" y1="10" x2="10" y2="20" stroke="#00f3ff" strokeWidth="1.2" strokeOpacity="0.6"/>
+      <line x1="24" y1="10" x2="38" y2="20" stroke="#00f3ff" strokeWidth="1.2" strokeOpacity="0.6"/>
       <line x1="10" y1="20" x2="24" y2="24" stroke="#61DAFB" strokeWidth="1.2" strokeOpacity="0.6"/>
       <line x1="38" y1="20" x2="24" y2="24" stroke="#61DAFB" strokeWidth="1.2" strokeOpacity="0.6"/>
-      <line x1="24" y1="24" x2="15" y2="36" stroke="#a855f7" strokeWidth="1.2" strokeOpacity="0.6"/>
-      <line x1="24" y1="24" x2="33" y2="36" stroke="#a855f7" strokeWidth="1.2" strokeOpacity="0.6"/>
-      <line x1="10" y1="20" x2="15" y2="36" stroke="#3ce6f9" strokeWidth="0.8" strokeOpacity="0.35"/>
-      <line x1="38" y1="20" x2="33" y2="36" stroke="#3ce6f9" strokeWidth="0.8" strokeOpacity="0.35"/>
+      <line x1="24" y1="24" x2="15" y2="36" stroke="#ff00ff" strokeWidth="1.2" strokeOpacity="0.6"/>
+      <line x1="24" y1="24" x2="33" y2="36" stroke="#ff00ff" strokeWidth="1.2" strokeOpacity="0.6"/>
+      <line x1="10" y1="20" x2="15" y2="36" stroke="#00f3ff" strokeWidth="0.8" strokeOpacity="0.35"/>
+      <line x1="38" y1="20" x2="33" y2="36" stroke="#00f3ff" strokeWidth="0.8" strokeOpacity="0.35"/>
     </svg>
   ),
 
@@ -349,8 +349,8 @@ const categoryLogos = {
       <circle cx="22" cy="14" r="1.5" fill="#28c840"/>
       {/* code brackets */}
       <path d="M16 27l-4 3 4 3" stroke="#61DAFB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M32 27l4 3-4 3" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M27 24l-6 12" stroke="#3ce6f9" strokeWidth="1.6" strokeLinecap="round"/>
+      <path d="M32 27l4 3-4 3" stroke="#ff00ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M27 24l-6 12" stroke="#00f3ff" strokeWidth="1.6" strokeLinecap="round"/>
     </svg>
   ),
 
@@ -371,8 +371,8 @@ const categoryLogos = {
       />
       {/* pipeline nodes */}
       <circle cx="16" cy="39" r="2.5" fill="#00ff88"/>
-      <circle cx="24" cy="39" r="2.5" fill="#3ce6f9"/>
-      <circle cx="32" cy="39" r="2.5" fill="#a855f7"/>
+      <circle cx="24" cy="39" r="2.5" fill="#00f3ff"/>
+      <circle cx="32" cy="39" r="2.5" fill="#ff00ff"/>
       {/* pipeline connectors */}
       <path d="M18.5 39h3M26.5 39h3" stroke="#38BDF8" strokeWidth="1.4" strokeLinecap="round"/>
       {/* down arrows from cloud to pipeline */}
@@ -393,10 +393,10 @@ export const CategoryIcon = ({ name, size = 40 }) => {
   // fallback
   return (
     <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="6" y="6" width="15" height="15" rx="2" stroke="#3ce6f9" strokeWidth="1.5"/>
-      <rect x="27" y="6" width="15" height="15" rx="2" stroke="#3ce6f9" strokeWidth="1.5"/>
-      <rect x="6" y="27" width="15" height="15" rx="2" stroke="#3ce6f9" strokeWidth="1.5"/>
-      <rect x="27" y="27" width="15" height="15" rx="2" stroke="#3ce6f9" strokeWidth="1.5"/>
+      <rect x="6" y="6" width="15" height="15" rx="2" stroke="#00f3ff" strokeWidth="1.5"/>
+      <rect x="27" y="6" width="15" height="15" rx="2" stroke="#00f3ff" strokeWidth="1.5"/>
+      <rect x="6" y="27" width="15" height="15" rx="2" stroke="#00f3ff" strokeWidth="1.5"/>
+      <rect x="27" y="27" width="15" height="15" rx="2" stroke="#00f3ff" strokeWidth="1.5"/>
     </svg>
   );
 };

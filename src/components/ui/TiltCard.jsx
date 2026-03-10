@@ -9,7 +9,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
  * <TiltCard
  *   className="extra-class"
  *   tiltIntensity={15}
- *   glowColor="#3ce6f9"
+ *   glowColor="#00f3ff"
  *   disabled={false}
  * >
  *   <div>Your content here</div>
@@ -20,7 +20,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
  * @param {React.ReactNode} props.children - Content to be displayed inside the card
  * @param {string} [props.className=''] - Additional CSS classes to apply
  * @param {number} [props.tiltIntensity=15] - Maximum rotation angle in degrees (0-30 recommended)
- * @param {string} [props.glowColor='#3ce6f9'] - Color for the border glow effect (hex, rgb, or color name)
+ * @param {string} [props.glowColor='#00f3ff'] - Color for the border glow effect (hex, rgb, or color name)
  * @param {boolean} [props.disabled=false] - Disable tilt effect (useful for touch devices or accessibility)
  * @param {function} [props.onTiltStart] - Callback when tilt effect starts
  * @param {function} [props.onTiltEnd] - Callback when tilt effect ends
@@ -31,7 +31,7 @@ const TiltCard = ({
   children,
   className = '',
   tiltIntensity = 15,
-  glowColor = '#3ce6f9',
+  glowColor = '#00f3ff',
   disabled = false,
   onTiltStart,
   onTiltEnd,

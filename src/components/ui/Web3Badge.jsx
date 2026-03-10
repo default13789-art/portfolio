@@ -19,7 +19,7 @@ const Web3Badge = () => {
   };
 
   return (
-    <div className="web3-identity-badge flex items-center gap-3 px-3 py-1.5 rounded-xl border border-[#3ce6f9]/20 bg-[#0a0a0f]/80 backdrop-blur-sm">
+    <div className="web3-identity-badge flex items-center gap-3 px-3 py-1.5 rounded-xl border border-[#00f3ff]/20 bg-[#050505]/80 backdrop-blur-sm">
       {/* Status dot */}
       <span className="relative flex h-2 w-2">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ff88] opacity-75" />
@@ -29,15 +29,15 @@ const Web3Badge = () => {
       {/* Chain icon + address */}
       <button
         onClick={handleCopy}
-        className="flex items-center gap-1.5 text-xs font-mono text-[#3ce6f9]/80 hover:text-[#3ce6f9] transition-colors"
+        className="flex items-center gap-1.5 text-xs font-mono text-[#00f3ff]/80 hover:text-[#00f3ff] transition-colors"
         title="Copy address"
       >
         {/* ETH icon */}
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-          <path d="M12 1.5L3 12.5l9 5.5 9-5.5L12 1.5z" fill="#3ce6f9" opacity="0.8" />
-          <path d="M3 12.5l9 5.5V8.5L3 12.5z" fill="#3ce6f9" opacity="0.5" />
-          <path d="M21 12.5l-9 5.5V8.5l9 4z" fill="#3ce6f9" opacity="0.3" />
-          <path d="M12 19.5L3 14l9 8.5 9-8.5-9 5.5z" fill="#3ce6f9" opacity="0.6" />
+          <path d="M12 1.5L3 12.5l9 5.5 9-5.5L12 1.5z" fill="#00f3ff" opacity="0.8" />
+          <path d="M3 12.5l9 5.5V8.5L3 12.5z" fill="#00f3ff" opacity="0.5" />
+          <path d="M21 12.5l-9 5.5V8.5l9 4z" fill="#00f3ff" opacity="0.3" />
+          <path d="M12 19.5L3 14l9 8.5 9-8.5-9 5.5z" fill="#00f3ff" opacity="0.6" />
         </svg>
         <span>{copied ? 'Copied!' : address}</span>
       </button>

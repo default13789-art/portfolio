@@ -45,8 +45,8 @@ const PremiumCircleCursor = () => {
 
     const colors = [
       'rgba(212, 175, 55, 0.5)',
-      'rgba(30, 64, 175, 0.4)',
-      'rgba(107, 70, 193, 0.4)',
+      'rgba(0, 243, 255, 0.4)',
+      'rgba(255, 0, 255, 0.4)',
     ];
     const color = colors[Math.floor(Math.random() * colors.length)];
     particle.style.background = `radial-gradient(circle, ${color} 0%, transparent 70%)`;
@@ -329,7 +329,7 @@ const PremiumCircleCursor = () => {
             boxShadow: `
               0 0 12px rgba(212, 175, 55, 0.8),
               0 0 24px rgba(212, 175, 55, 0.5),
-              0 0 36px rgba(30, 64, 175, 0.3),
+              0 0 36px rgba(0, 243, 255, 0.3),
               inset 0 2px 4px rgba(255, 255, 255, 0.3),
               inset 0 -2px 4px rgba(0, 0, 0, 0.2)
             `,
@@ -374,7 +374,7 @@ const PremiumCircleCursor = () => {
             border: '1px solid rgba(212, 175, 55, 0.5)',
             boxShadow: `
               0 0 15px rgba(212, 175, 55, 0.3),
-              0 0 30px rgba(30, 64, 175, 0.2),
+              0 0 30px rgba(0, 243, 255, 0.2),
               inset 0 0 15px rgba(212, 175, 55, 0.2)
             `,
             transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',

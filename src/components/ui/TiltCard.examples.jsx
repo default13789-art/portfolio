@@ -64,14 +64,14 @@ export const ColorExample = () => {
       flexWrap: 'wrap',
       background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)'
     }}>
-      <TiltCard glowColor="#3ce6f9">
-        <h3 style={{ color: '#3ce6f9', margin: '0 0 12px 0' }}>Cyan Glow</h3>
-        <p style={{ color: 'rgba(255,255,255,0.7)', margin: 0 }}>Glow color: #3ce6f9</p>
+      <TiltCard glowColor="#00f3ff">
+        <h3 style={{ color: '#00f3ff', margin: '0 0 12px 0' }}>Cyan Glow</h3>
+        <p style={{ color: 'rgba(255,255,255,0.7)', margin: 0 }}>Glow color: #00f3ff</p>
       </TiltCard>
 
-      <TiltCard glowColor="#a855f7">
-        <h3 style={{ color: '#a855f7', margin: '0 0 12px 0' }}>Purple Glow</h3>
-        <p style={{ color: 'rgba(255,255,255,0.7)', margin: 0 }}>Glow color: #a855f7</p>
+      <TiltCard glowColor="#ff00ff">
+        <h3 style={{ color: '#ff00ff', margin: '0 0 12px 0' }}>Purple Glow</h3>
+        <p style={{ color: 'rgba(255,255,255,0.7)', margin: 0 }}>Glow color: #ff00ff</p>
       </TiltCard>
 
       <TiltCard glowColor="#22c55e">

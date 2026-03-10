@@ -8,7 +8,7 @@ import React, { useState, useEffect, useRef } from 'react';
  * ```jsx
  * <AnimatedProgressBar
  *   percentage={85}
- *   color="#3ce6f9"
+ *   color="#00f3ff"
  *   label="Python"
  *   duration={1500}
  * />
@@ -16,7 +16,7 @@ import React, { useState, useEffect, useRef } from 'react';
  *
  * @param {Object} props - Component props
  * @param {number} props.percentage - Target percentage (0-100)
- * @param {string} [props.color='#3ce6f9'] - Color for the progress bar (hex, rgb, or color name)
+ * @param {string} [props.color='#00f3ff'] - Color for the progress bar (hex, rgb, or color name)
  * @param {string} [props.label] - Label to display above the progress bar
  * @param {number} [props.duration=1500] - Animation duration in milliseconds
  * @param {number} [props.height=8] - Height of the progress bar in pixels
@@ -27,7 +27,7 @@ import React, { useState, useEffect, useRef } from 'react';
  */
 const AnimatedProgressBar = ({
   percentage,
-  color = '#3ce6f9',
+  color = '#00f3ff',
   label,
   duration = 1500,
   height = 8,
