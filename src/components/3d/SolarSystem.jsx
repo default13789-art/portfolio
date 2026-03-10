@@ -328,7 +328,7 @@ export default function SolarSystem() {
   return (
     <group>
       {/* Ambient fill so dark sides aren't pitch black */}
-      <ambientLight intensity={0.04} />
+      <ambientLight intensity={0.15} />
 
       {/* The Sun */}
       <Sun />
