@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import LoadingState from './components/ui/LoadingState';
 import CustomCursor from './components/effects/CustomCursor';
 import ParticleEffects from './components/effects/ParticleEffects';
@@ -100,6 +101,9 @@ function App() {
           <Footer />
         </Suspense>
       </div>
+
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </div>
   );
 }
