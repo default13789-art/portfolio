@@ -57,7 +57,7 @@ export const AnimatedProgressBarExample = () => {
 // Example 2: Using RotatingIcon standalone
 export const RotatingIconExample = () => {
   // Sample SVG icons
-  const BrainIcon = () => (
+  const _BrainIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M9.5 2C9.5 2 9.5 2 9.5 2C9.5 2 9.5 2 9.5 2C9.5 2 9.5 2 9.5 2C9.5 2 9.5 2 9.5 2Z"

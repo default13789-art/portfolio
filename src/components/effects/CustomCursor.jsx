@@ -10,6 +10,7 @@ const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const trailRefs = useRef([]);
+  const trailTimeoutsRef = useRef([]);
 
   // Create cursor trail
   useEffect(() => {
@@ -28,6 +29,9 @@ const CustomCursor = () => {
     });
 
     return () => {
+      // Clear any pending timeouts
+      trailTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+      trailTimeoutsRef.current = [];
       trailElements.forEach(el => el.remove());
     };
   }, []);
@@ -55,13 +59,20 @@ const CustomCursor = () => {
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      // Update trail positions
+      // Clear previous pending trail updates
+      trailTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+      trailTimeoutsRef.current = [];
+
+      // Update trail positions with tracked timeouts
       trailRefs.current.forEach((ref, i) => {
         if (ref.current) {
-          setTimeout(() => {
-            ref.current.style.left = `${mouseX}px`;
-            ref.current.style.top = `${mouseY}px`;
+          const timeout = setTimeout(() => {
+            if (ref.current) {
+              ref.current.style.left = `${mouseX}px`;
+              ref.current.style.top = `${mouseY}px`;
+            }
           }, i * 20);
+          trailTimeoutsRef.current.push(timeout);
         }
       });
     };
@@ -143,7 +154,7 @@ const CustomCursor = () => {
       document.removeEventListener('mouseover', handleMouseEnter);
       document.removeEventListener('mouseout', handleMouseLeave);
     };
-  }, [isEnabled, isClicking]);
+  }, [isEnabled]);
 
   // Handle hover state
   useEffect(() => {

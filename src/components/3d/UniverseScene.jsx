@@ -34,9 +34,9 @@ export default function UniverseScene({
   style = {}
 }) {
   // Reduce particle count on mobile devices for better performance
+  // Note: Responsive check handled at component level via LazyUniverseScene
   const adjustedStarCount = useMemo(() => {
-    const isMobile = window.innerWidth < 768
-    return isMobile ? Math.min(starCount, 2000) : starCount
+    return starCount
   }, [starCount])
 
   return (
