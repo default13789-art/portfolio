@@ -26,11 +26,13 @@ function App() {
   const [defer3DLoading, setDefer3DLoading] = useState(true);
 
   useEffect(() => {
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      setCursorEnabled(false);
-    }
+    // Check for reduced motion preference (deferred to avoid cascading renders)
+    const timer = setTimeout(() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        setCursorEnabled(false);
+      }
+    }, 0);
 
     // Add cursor effects class to body
     if (cursorEnabled) {
