@@ -14,34 +14,16 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild',
     target: 'es2018',
-    terserOptions: {
-      compress: {
-        drop_console: true,   // remove console.log in production
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'],
-        passes: 2,
-      },
-      format: {
-        comments: false,      // strip all comments
-      },
-    },
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
-            return 'vendor-react'
-          }
-          if (
-            id.includes('node_modules/three') ||
-            id.includes('node_modules/@react-three')
-          ) {
-            return 'vendor-three'
-          }
-          if (id.includes('node_modules')) {
-            return 'vendor-others'
-          }
+        manualChunks: {
+          'three-vendor': [
+            'three',
+            '@react-three/fiber',
+            '@react-three/drei',
+          ],
         },
         chunkFileNames:  'assets/js/[name]-[hash].js',
         entryFileNames:  'assets/js/[name]-[hash].js',
@@ -54,11 +36,11 @@ export default defineConfig({
         }
       }
     },
-    chunkSizeWarningLimit: 600,
+    chunkSizeWarningLimit: 1000,
     cssCodeSplit: true,
     reportCompressedSize: true,
     emptyOutDir: true,
-    assetsInlineLimit: 4096, // inline assets < 4 KB as base64
+    assetsInlineLimit: 4096,
   },
 
   optimizeDeps: {

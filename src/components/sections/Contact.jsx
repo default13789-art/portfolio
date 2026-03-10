@@ -107,20 +107,43 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Open mailto as fallback while giving a "sending" feel
       const { name, email, subject, message } = formData;
+
+      // ── Option A: Web3Forms (recommended, free & no backend needed)
+      // 1. Sign up at https://web3forms.com/ and get your free access key
+      // 2. Replace 'YOUR_WEB3FORMS_ACCESS_KEY' below with your key
+      // 3. Delete Option B once you have a key
+      const WEB3FORMS_KEY = 'fdd689d2-0e94-4283-991d-18e8cc4b8e50';
+
+      if (WEB3FORMS_KEY !== 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            name,
+            email,
+            subject: subject || 'Portfolio Contact',
+            message,
+          }),
+        });
+        const data = await res.json();
+        if (!data.success) throw new Error(data.message || 'Web3Forms error');
+        setSubmitStatus('success');
+        return;
+      }
+
+      // ── Option B: mailto fallback (works immediately, no signup)
+      // Uses window.open so the page doesn't navigate away
       const mailtoUrl = `mailto:${portfolioData.contact.email}?subject=${encodeURIComponent(
         subject || 'Portfolio Contact'
-      )}&body=${encodeURIComponent(
-        `Hi, I'm ${name} (${email}).\n\n${message}`
-      )}`;
+      )}&body=${encodeURIComponent(`Hi, I'm ${name} (${email}).\n\n${message}`)}`;
 
-      // Brief artificial delay for UX
       await new Promise((r) => setTimeout(r, 900));
-
-      window.location.href = mailtoUrl;
+      window.open(mailtoUrl, '_blank');
       setSubmitStatus('success');
-    } catch {
+    } catch (err) {
+      console.error('Contact form error:', err);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
