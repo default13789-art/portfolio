@@ -299,7 +299,7 @@ export default function ContactCharacter({ isHovered = false, isSubmitting = fal
               side={THREE.DoubleSide}
             />
           </mesh>
-        </mesh>
+        </group>
       </group>
 
       {/* Hover ring effect when form is interacted with */}
