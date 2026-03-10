@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { Suspense, useMemo, lazy } from 'react'
+import { Suspense, useMemo, lazy, useState, useEffect } from 'react'
 
 // Lazy load individual 3D components for better performance
 const Stars     = lazy(() => import('./Stars'))
@@ -21,6 +21,13 @@ export default function UniverseScene({
   className = '',
   style = {}
 }) {
+  const [dpr, setDpr] = useState(1)
+
+  useEffect(() => {
+    // Safe access to window.devicePixelRatio after mount
+    setDpr(Math.min(window.devicePixelRatio || 1, 2))
+  }, [])
+
   const adjustedStarCount = useMemo(() => starCount, [starCount])
 
   return (
@@ -37,11 +44,11 @@ export default function UniverseScene({
       }}
     >
       <Canvas
-        dpr={Math.min(window.devicePixelRatio, 2)}
+        dpr={dpr}
         gl={{
           antialias: false,
           powerPreference: 'high-performance',
-          alpha: false,
+          alpha: true,
         }}
         camera={{
           position: [0, 14, 52],
