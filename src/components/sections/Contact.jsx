@@ -1,36 +1,7 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { Card, CardContent } from '../ui/Card';
 import useRevealAnimations from '../utils/useRevealAnimations';
-import { Canvas } from '@react-three/fiber';
-
-// Lazy load 3D components for better performance
-const ContactCharacter3D = lazy(() => import('../3d/ContactCharacter'));
-
-/* ─────────────────────────────────────────
-   3D Character Container
-───────────────────────────────────────── */
-const CharacterContainer = ({ isHovered, isSubmitting, isSuccess }) => (
-  <div className="absolute inset-0 pointer-events-none -z-10">
-    <Canvas
-      camera={{ position: [0, 0, 4], fov: 50 }}
-      style={{ background: 'transparent' }}
-      gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
-      dpr={[1, 2]}
-    >
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 5, 5]} intensity={0.8} />
-      <pointLight position={[0, 2, 2]} intensity={0.5} color="#3ce6f9" />
-      <Suspense fallback={null}>
-        <ContactCharacter3D
-          isHovered={isHovered}
-          isSubmitting={isSubmitting}
-          isSuccess={isSuccess}
-        />
-      </Suspense>
-    </Canvas>
-  </div>
-);
 
 /* ─────────────────────────────────────────
    Inline SVG icons
@@ -126,7 +97,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // null | 'success' | 'error'
   const [focusedField, setFocusedField] = useState(null);
-  const [isFormHovered, setIsFormHovered] = useState(false);
 
   const { ref: sectionRef, isVisible } = useRevealAnimations({
     threshold: 0.1,
@@ -384,20 +354,9 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* ── Right: Send a Message card with 3D character ── */}
+          {/* ── Right: Send a Message card ── */}
           <div className={`reveal reveal-fade-in-right reveal-stagger-2 ${isVisible ? 'reveal-active' : ''}`}>
-            <div
-              className="relative"
-              onMouseEnter={() => setIsFormHovered(true)}
-              onMouseLeave={() => setIsFormHovered(false)}
-            >
-              {/* 3D Character Background */}
-              <CharacterContainer
-                isHovered={isFormHovered}
-                isSubmitting={isSubmitting}
-                isSuccess={submitStatus === 'success'}
-              />
-
+            <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#3ce6f9] to-[#a855f7] rounded-2xl blur opacity-20" />
               <Card className="relative hover:border-[#3ce6f9]/30 transition-all duration-300">
                 <CardContent className="p-8">

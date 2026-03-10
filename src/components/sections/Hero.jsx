@@ -2,13 +2,33 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import { portfolioData } from '../../data/portfolioData';
 import Button from '../ui/Button';
+import LazyUniverseScene from '../3d/LazyUniverseScene';
 
-const Hero = () => {
+const Hero = ({ defer3DLoading = false }) => {
   // Typing animation state
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
+  const [isMobile, setIsMobile] = useState(false);
+  const [canLoad3D, setCanLoad3D] = useState(!defer3DLoading);
+
+  // Handle 3D loading deferral
+  useEffect(() => {
+    if (!defer3DLoading) {
+      setCanLoad3D(true);
+    }
+  }, [defer3DLoading]);
+
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Roles to cycle through
   const roles = [
@@ -84,6 +104,19 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
+      {/* 3D Universe Background - Lazy loaded for performance */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        {canLoad3D && (
+          <LazyUniverseScene
+            starCount={isMobile ? 1500 : 4000}
+            visibilityThreshold={0.1}
+            rootMargin="100px"
+            unloadWhenHidden={true}
+            unloadDelay={5000}
+          />
+        )}
+      </div>
+
       {/* Subtle gradient overlay for better text readability */}
       <div
         className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0f]/30 to-[#0a0a0f] pointer-events-none z-0"
