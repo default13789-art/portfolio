@@ -161,8 +161,8 @@ export const portfolioData = {
 
   contact: {
     email: "omik@example.com",
-    phone: "+1 (555) 987-6543",
-    location: "San Francisco, CA",
+    phone: "+8801748686669",
+    location: "Bogura, Bangladesh",
     social: {
       github: "https://github.com/omik",
       linkedin: "https://linkedin.com/in/omik",
