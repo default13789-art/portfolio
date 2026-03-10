@@ -16,10 +16,30 @@
     {
       "source": "/(.*)",
       "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; connect-src 'self' https://api.web3forms.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://*.unsplash.com; worker-src 'self' blob:; child-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests;"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "accelerometer=(), ambient-light-sensor=(), battery=(), bluetooth=(), camera=(), cross-origin-isolated=(), display-capture=(), execution-while-out-of-viewport=(), execution-while-not-rendered=(), fullscreen=(self), geolocation=(), gyroscope=(), hid=(), idle-detection=(), local-fonts=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options",        "value": "DENY" },
         { "key": "X-XSS-Protection",       "value": "1; mode=block" },
-        { "key": "Referrer-Policy",         "value": "strict-origin-when-cross-origin" }
+        { "key": "Referrer-Policy",        "value": "strict-origin-when-cross-origin" }
       ]
     }
   ]
