@@ -160,7 +160,7 @@ export const portfolioData = {
   },
 
   contact: {
-    email: "omik@example.com",
+    email: "default13789@gmail.com",
     phone: "+8801748686669",
     location: "Bogura, Bangladesh",
     social: {
