@@ -1,7 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { Card, CardContent } from '../ui/Card';
 import useRevealAnimations from '../utils/useRevealAnimations';
+import { Canvas } from '@react-three/fiber';
+
+// Lazy load 3D components for better performance
+const ContactCharacter3D = lazy(() => import('../3d/ContactCharacter'));
+
+/* ─────────────────────────────────────────
+   3D Character Container
+───────────────────────────────────────── */
+const CharacterContainer = ({ isHovered, isSubmitting, isSuccess }) => (
+  <div className="absolute inset-0 pointer-events-none -z-10">
+    <Canvas
+      camera={{ position: [0, 0, 4], fov: 50 }}
+      style={{ background: 'transparent' }}
+      gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
+      dpr={[1, 2]}
+    >
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={0.8} />
+      <pointLight position={[0, 2, 2]} intensity={0.5} color="#3ce6f9" />
+      <Suspense fallback={null}>
+        <ContactCharacter3D
+          isHovered={isHovered}
+          isSubmitting={isSubmitting}
+          isSuccess={isSuccess}
+        />
+      </Suspense>
+    </Canvas>
+  </div>
+);
 
 /* ─────────────────────────────────────────
    Inline SVG icons
@@ -68,12 +97,12 @@ const SubmitFeedback = ({ status, onReset }) => {
       </div>
 
       <h4 className="text-xl font-bold text-white">
-        {isSuccess ? 'Message Sent!' : 'Something went wrong'}
+        {isSuccess ? 'Message Sent!' : 'Submission Failed'}
       </h4>
       <p className="text-gray-400 max-w-xs">
         {isSuccess
           ? "Thanks for reaching out! I'll get back to you as soon as possible."
-          : 'Your message could not be sent. Please try again or email me directly.'}
+          : 'Please check your form fields and try again. You can also email me directly at default13789@gmail.com'}
       </p>
 
       <button
@@ -97,6 +126,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // null | 'success' | 'error'
   const [focusedField, setFocusedField] = useState(null);
+  const [isFormHovered, setIsFormHovered] = useState(false);
 
   const { ref: sectionRef, isVisible } = useRevealAnimations({
     threshold: 0.1,
@@ -107,46 +137,91 @@ const Contact = () => {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  // Client-side validation
+  const validateForm = () => {
+    const errors = {};
+    const { name, email, subject, message } = formData;
+
+    if (!name.trim()) {
+      errors.name = 'Name is required';
+    } else if (name.trim().length < 2) {
+      errors.name = 'Name must be at least 2 characters';
+    }
+
+    if (!email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+
+    if (!message.trim()) {
+      errors.message = 'Message is required';
+    } else if (message.trim().length < 10) {
+      errors.message = 'Message must be at least 10 characters';
+    }
+
+    return errors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate form before submission
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setSubmitStatus('error');
+      console.error('Validation errors:', errors);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
       const { name, email, subject, message } = formData;
 
-      // ── Option A: Web3Forms (recommended, free & no backend needed)
-      // 1. Sign up at https://web3forms.com/ and get your free access key
-      // 2. Replace 'YOUR_WEB3FORMS_ACCESS_KEY' below with your key
-      // 3. Delete Option B once you have a key
-      const WEB3FORMS_KEY = 'fdd689d2-0e94-4283-991d-18e8cc4b8e50';
+      // ── Option A: Formspree (free, reliable, no backend needed)
+      // 1. Sign up at https://formspree.io/ and create a new form
+      // 2. Replace 'YOUR_FORMSPREE_FORM_ID' with your form ID
+      // 3. The form will be submitted to Formspree and forwarded to your email
+      const FORMSPREE_FORM_ID = 'xqazlkyw';
 
-      if (WEB3FORMS_KEY !== 'YOUR_WEB3FORMS_ACCESS_KEY') {
-        const res = await fetch('https://api.web3forms.com/submit', {
+      if (FORMSPREE_FORM_ID !== 'YOUR_FORMSPREE_FORM_ID') {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
           body: JSON.stringify({
-            access_key: WEB3FORMS_KEY,
             name,
             email,
             subject: subject || 'Portfolio Contact',
             message,
+            _subject: subject || 'Portfolio Contact',
           }),
         });
+
         const data = await res.json();
-        if (!data.success) throw new Error(data.message || 'Web3Forms error');
-        setSubmitStatus('success');
-        return;
+
+        if (res.ok && data.ok) {
+          // Success - clear form and show success message
+          setFormData(emptyForm);
+          setSubmitStatus('success');
+          return;
+        }
+
+        // Formspree returned an error
+        throw new Error(data.error || 'Form submission failed');
       }
 
       // ── Option B: mailto fallback (works immediately, no signup)
-      // Uses window.open so the page doesn't navigate away
       const mailtoUrl = `mailto:${portfolioData.contact.email}?subject=${encodeURIComponent(
         subject || 'Portfolio Contact'
       )}&body=${encodeURIComponent(`Hi, I'm ${name} (${email}).\n\n${message}`)}`;
 
-      await new Promise((r) => setTimeout(r, 900));
       window.open(mailtoUrl, '_blank');
       setSubmitStatus('success');
+      setFormData(emptyForm);
     } catch (err) {
       console.error('Contact form error:', err);
       setSubmitStatus('error');
@@ -309,9 +384,20 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* ── Right: Send a Message card ── */}
+          {/* ── Right: Send a Message card with 3D character ── */}
           <div className={`reveal reveal-fade-in-right reveal-stagger-2 ${isVisible ? 'reveal-active' : ''}`}>
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => setIsFormHovered(true)}
+              onMouseLeave={() => setIsFormHovered(false)}
+            >
+              {/* 3D Character Background */}
+              <CharacterContainer
+                isHovered={isFormHovered}
+                isSubmitting={isSubmitting}
+                isSuccess={submitStatus === 'success'}
+              />
+
               <div className="absolute -inset-1 bg-gradient-to-r from-[#3ce6f9] to-[#a855f7] rounded-2xl blur opacity-20" />
               <Card className="relative hover:border-[#3ce6f9]/30 transition-all duration-300">
                 <CardContent className="p-8">
