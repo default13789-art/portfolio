@@ -51,7 +51,7 @@ const Skills = () => {
           }}
         ></div>
         <div
-          className="absolute w-96 h-96 bg-[#a855f7]/5 rounded-full blur-3xl -bottom-48 -right-48"
+          className="absolute w-96 h-96 bg-deep-amethyst/5 rounded-full blur-3xl -bottom-48 -right-48"
           style={{
             animation: 'float 20s ease-in-out infinite reverse',
           }}
@@ -64,7 +64,7 @@ const Skills = () => {
           <h2 className="heading-lg gradient-text mb-4">Skills & Expertise</h2>
 
           {/* Animated Gradient Divider */}
-          <div className="w-24 h-1 bg-gradient-to-r from-[#05b5d4] to-[#a855f7] mx-auto rounded-full mb-6 overflow-hidden">
+          <div className="w-24 h-1 bg-gradient-to-r from-sapphire-blue to-deep-amethyst mx-auto rounded-full mb-6 overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-transparent via-white/50 to-transparent"
               style={{
@@ -95,7 +95,7 @@ const Skills = () => {
         <div className={`reveal reveal-fade-in-up reveal-stagger-8 ${isVisible ? 'reveal-active' : ''} mt-16 text-center`}>
           <p className="text-gray-400 text-lg">
             Always learning and exploring new technologies.{' '}
-            <span className="text-[#3ce6f9]">Current focus:</span> AI/ML integration and advanced frontend architectures.
+            <span className="text-sapphire-blue">Current focus:</span> AI/ML integration and advanced frontend architectures.
           </p>
         </div>
       </div>
@@ -159,7 +159,7 @@ const SkillCard = ({ category, index, isVisible }) => {
       ref={cardRef}
       className={`group glass-card p-6 relative overflow-hidden transition-all duration-500 transform will-change-transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      } ${isHovered ? 'skill-card-glow -translate-y-2 scale-105 border-[#16ddfa]/50' : 'hover:border-[#16ddfa]/30 hover:-translate-y-1'}`}
+      } ${isHovered ? 'skill-card-glow -translate-y-2 scale-105 border-sapphire-blue/50' : 'hover:border-sapphire-blue/30 hover:-translate-y-1'}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -167,7 +167,7 @@ const SkillCard = ({ category, index, isVisible }) => {
       <div
         className="absolute inset-0 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(45deg, #05b5d4, #a855f7, #05b5d4)',
+          background: 'linear-gradient(45deg, #1E40AF, #6B46C1, #1E40AF)',
           backgroundSize: '200% 200%',
           animation: isHovered ? 'gradientShift 3s ease infinite' : 'none',
           filter: 'blur(8px)',
@@ -182,14 +182,14 @@ const SkillCard = ({ category, index, isVisible }) => {
           </div>
         </div>
         <div className="flex-1">
-          <h3 className={`heading-md text-lg transition-all duration-300 group-hover:text-[#3ce6f9] ${isHovered ? 'neon-text-cyan' : ''}`}>
+          <h3 className={`heading-md text-lg transition-all duration-300 group-hover:text-sapphire-blue ${isHovered ? 'neon-text-cyan' : ''}`}>
             {category.name}
           </h3>
           <p className="text-gray-400 text-sm transition-colors duration-300 group-hover:text-gray-300">
             {category.skills.length} {category.skills.length === 1 ? 'skill' : 'skills'}
           </p>
         </div>
-        <div className={`w-2 h-2 rounded-full bg-[#3ce6f9] opacity-0 transition-all duration-300 ${isHovered ? 'opacity-100 shadow-[0_0_10px_rgba(60,230,249,0.8)]' : ''}`}></div>
+        <div className={`w-2 h-2 rounded-full bg-sapphire-blue opacity-0 transition-all duration-300 ${isHovered ? 'opacity-100 shadow-[0_0_10px_rgba(30,64,175,0.8)]' : ''}`}></div>
       </div>
 
       {/* Skills List */}
@@ -211,13 +211,13 @@ const SkillCard = ({ category, index, isVisible }) => {
                 </span>
                 <span className="text-gray-300 font-medium text-sm">{skill.name}</span>
               </span>
-              <span className="font-semibold text-sm" style={{ color: '#3ce6f9' }}>
+              <span className="font-semibold text-sm" style={{ color: '#1E40AF' }}>
                 {progressBarsVisible ? skill.level : 0}%
               </span>
             </div>
             <AnimatedProgressBar
               percentage={skill.level}
-              color="#3ce6f9"
+              color="#1E40AF"
               duration={1200}
               height={8}
               showPercentage={false}

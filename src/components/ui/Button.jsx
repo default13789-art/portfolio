@@ -6,9 +6,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-gradient-to-r from-[#05b5d4] to-[#a855f7] text-white shadow-lg hover:shadow-[0_0_30px_rgba(60,230,249,0.5)] hover:scale-110',
-        secondary: 'bg-transparent border-2 border-[#16ddfa] text-[#3ce6f9] hover:bg-[#16ddfa]/10 hover:border-[#3ce6f9] hover:shadow-[0_0_20px_rgba(60,230,249,0.3)]',
-        outline: 'border-2 border-gray-600 text-gray-300 hover:border-[#16ddfa] hover:text-[#3ce6f9] hover:shadow-[0_0_15px_rgba(60,230,249,0.2)]',
+        primary: 'bg-gradient-to-r from-sapphire-blue via-deep-amethyst to-gold-luster text-white shadow-lg hover:shadow-gold-glow hover:scale-110',
+        premium: 'bg-gradient-to-r from-gold-luster via-sapphire-blue to-deep-amethyst text-white shadow-gold-glow hover:shadow-glow-lg hover:scale-110',
+        secondary: 'bg-transparent border-2 border-sapphire-blue text-sapphire-blue hover:bg-sapphire-blue/10 hover:shadow-glow',
+        outline: 'border-2 border-gray-600 text-gray-300 hover:border-sapphire-blue hover:text-sapphire-blue hover:shadow-glow',
         ghost: 'text-gray-300 hover:text-white hover:bg-white/10 hover:shadow-[0_0_10px_rgba(255,255,255,0.1)]',
       },
       size: {

@@ -62,7 +62,7 @@ const Navbar = () => {
                 {/* 3D sphere gradient — input layer (cyan) */}
                 <radialGradient id="sph-in" cx="33%" cy="28%" r="67%" fx="33%" fy="28%">
                   <stop offset="0%"   stopColor="#c8faff" />
-                  <stop offset="30%"  stopColor="#3ce6f9" />
+                  <stop offset="30%"  stopColor="#1E40AF" />
                   <stop offset="75%"  stopColor="#0b6e80" />
                   <stop offset="100%" stopColor="#02242b" />
                 </radialGradient>
@@ -76,19 +76,19 @@ const Navbar = () => {
                 {/* 3D sphere gradient — output layer (purple) */}
                 <radialGradient id="sph-out" cx="33%" cy="28%" r="67%" fx="33%" fy="28%">
                   <stop offset="0%"   stopColor="#f3d4ff" />
-                  <stop offset="30%"  stopColor="#a855f7" />
+                  <stop offset="30%"  stopColor="#6B46C1" />
                   <stop offset="75%"  stopColor="#6b21a8" />
                   <stop offset="100%" stopColor="#200838" />
                 </radialGradient>
                 {/* Connection line gradient L→R */}
                 <linearGradient id="conn-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stopColor="#3ce6f9" stopOpacity="0.55" />
+                  <stop offset="0%"   stopColor="#1E40AF" stopOpacity="0.55" />
                   <stop offset="100%" stopColor="#818cf8" stopOpacity="0.55" />
                 </linearGradient>
                 {/* Connection line gradient M→R */}
                 <linearGradient id="conn-2" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%"   stopColor="#818cf8" stopOpacity="0.55" />
-                  <stop offset="100%" stopColor="#a855f7" stopOpacity="0.55" />
+                  <stop offset="100%" stopColor="#6B46C1" stopOpacity="0.55" />
                 </linearGradient>
                 {/* Node glow filter */}
                 <filter id="nd-glow" x="-70%" y="-70%" width="240%" height="240%">
@@ -108,7 +108,7 @@ const Navbar = () => {
                 </filter>
                 {/* Drop shadow for whole icon */}
                 <filter id="icon-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#3ce6f9" floodOpacity="0.35" />
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#1E40AF" floodOpacity="0.35" />
                 </filter>
               </defs>
 
@@ -146,7 +146,7 @@ const Navbar = () => {
 
                 {/* ── SIGNAL DOTS (animateMotion along key paths) ── */}
                 {/* Signal 1: A → E */}
-                <circle r="1.5" fill="#3ce6f9" filter="url(#sig-glow)">
+                <circle r="1.5" fill="#1E40AF" filter="url(#sig-glow)">
                   <animateMotion dur="1.9s" repeatCount="indefinite" begin="0s"
                     path="M7,13 L25,25" />
                   <animate attributeName="opacity" values="0;1;1;0" dur="1.9s" repeatCount="indefinite" begin="0s" />
@@ -158,13 +158,13 @@ const Navbar = () => {
                   <animate attributeName="opacity" values="0;0.9;0.9;0" dur="2.4s" repeatCount="indefinite" begin="0.8s" />
                 </circle>
                 {/* Signal 3: E → G */}
-                <circle r="1.5" fill="#a855f7" filter="url(#sig-glow)">
+                <circle r="1.5" fill="#6B46C1" filter="url(#sig-glow)">
                   <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.5s"
                     path="M25,25 L43,18" />
                   <animate attributeName="opacity" values="0;1;1;0" dur="1.6s" repeatCount="indefinite" begin="1.5s" />
                 </circle>
                 {/* Signal 4: C → F */}
-                <circle r="1.2" fill="#3ce6f9" filter="url(#sig-glow)">
+                <circle r="1.2" fill="#1E40AF" filter="url(#sig-glow)">
                   <animateMotion dur="2.1s" repeatCount="indefinite" begin="2.2s"
                     path="M7,37 L25,40" />
                   <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.1s" repeatCount="indefinite" begin="2.2s" />
@@ -225,7 +225,7 @@ const Navbar = () => {
                 <circle cx="41.2" cy="30.3" r="1.3" fill="white" opacity="0.57" />
               </g>
             </svg>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#3ce6f9] to-[#a855f7] rounded-lg opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-sapphire-blue to-deep-amethyst rounded-lg opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300"></span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -236,11 +236,11 @@ const Navbar = () => {
                 to={item.to}
                 smooth={true}
                 duration={500}
-                className="group relative text-gray-300 hover:text-[#3ce6f9] transition-all duration-300 cursor-pointer text-sm font-medium"
+                className="group relative text-gray-300 hover:text-sapphire-blue transition-all duration-300 cursor-pointer text-sm font-medium"
               >
                 <span className="relative z-10 inline-block transition-transform duration-300 group-hover:scale-105">{item.name}</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#3ce6f9] to-[#a855f7] transition-all duration-300 group-hover:w-full"></span>
-                <span className="absolute inset-0 bg-[#3ce6f9]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-sapphire-blue to-deep-amethyst transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute inset-0 bg-sapphire-blue/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
               </Link>
             ))}
 
@@ -270,7 +270,7 @@ const Navbar = () => {
                 )}
               </svg>
             </span>
-            <span className="absolute inset-0 bg-[#3ce6f9]/20 rounded-lg opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300"></span>
+            <span className="absolute inset-0 bg-sapphire-blue/20 rounded-lg opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300"></span>
           </button>
         </div>
 
@@ -290,14 +290,14 @@ const Navbar = () => {
                   smooth={true}
                   duration={500}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="group relative text-gray-300 hover:text-[#3ce6f9] transition-all duration-300 cursor-pointer text-2xl font-semibold py-3 px-8 rounded-xl hover:bg-white/5 min-w-[200px] text-center"
+                  className="group relative text-gray-300 hover:text-sapphire-blue transition-all duration-300 cursor-pointer text-2xl font-semibold py-3 px-8 rounded-xl hover:bg-white/5 min-w-[200px] text-center"
                   style={{
                     animation: `fadeInUp 0.3s ease-out forwards ${index * 0.05}s`,
                     opacity: 0,
                   }}
                 >
                   <span className="relative z-10 inline-block transition-transform duration-300 group-hover:scale-110">{item.name}</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#3ce6f9]/10 to-[#a855f7]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-sapphire-blue/10 to-deep-amethyst/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
                 </Link>
               ))}
             </div>

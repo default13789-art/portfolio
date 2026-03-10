@@ -214,7 +214,7 @@ const SimpleCursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="fixed w-4 h-4 border-2 border-[#3ce6f9] rounded-full pointer-events-none z-[9999] mix-blend-difference transition-transform duration-150"
+      className="fixed w-4 h-4 border-2 border-sapphire-blue rounded-full pointer-events-none z-[9999] mix-blend-difference transition-transform duration-150"
       style={{
         left: position.x - 8,
         top: position.y - 8

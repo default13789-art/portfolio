@@ -2,33 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import { portfolioData } from '../../data/portfolioData';
 import Button from '../ui/Button';
-import LazyUniverseScene from '../3d/LazyUniverseScene';
 
-const Hero = ({ defer3DLoading = false }) => {
+const Hero = () => {
   // Typing animation state
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
-  const [isMobile, setIsMobile] = useState(false);
-  const [canLoad3D, setCanLoad3D] = useState(!defer3DLoading);
-
-  // Handle 3D loading deferral
-  useEffect(() => {
-    if (!defer3DLoading) {
-      setCanLoad3D(true);
-    }
-  }, [defer3DLoading]);
-
-  // Detect mobile screen size
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // Roles to cycle through
   const roles = [
@@ -104,19 +84,6 @@ const Hero = ({ defer3DLoading = false }) => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
-      {/* 3D Universe Background - Lazy loaded for performance */}
-      <div className="absolute inset-0 z-0" aria-hidden="true">
-        {canLoad3D && (
-          <LazyUniverseScene
-            starCount={isMobile ? 1500 : 4000}
-            visibilityThreshold={0.1}
-            rootMargin="100px"
-            unloadWhenHidden={true}
-            unloadDelay={5000}
-          />
-        )}
-      </div>
-
       {/* Subtle gradient overlay for better text readability */}
       <div
         className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0f]/30 to-[#0a0a0f] pointer-events-none z-0"
@@ -127,13 +94,13 @@ const Hero = ({ defer3DLoading = false }) => {
       <div className="relative z-10 section-container">
         <div className="max-w-4xl mx-auto">
           {/* Glassmorphism Card */}
-          <div className="glass-card p-6 sm:p-8 md:p-12 lg:p-16 text-center backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-2xl mx-2 sm:mx-0">
+          <div className="glass-card p-6 sm:p-8 md:p-12 lg:p-16 text-center backdrop-blur-xl bg-white/[0.03] border border-white/10 shadow-[0_0_40px_rgba(212,175,55,0.15)] mx-2 sm:mx-0">
 
             {/* ── Web3 Identity Bar ── */}
             <div className="flex flex-wrap items-center justify-center gap-3 mb-8 animate-fade-in-up opacity-0 stagger-1">
               {/* Decentralized builder tag */}
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#a855f7]/10 to-[#3ce6f9]/10 border border-[#a855f7]/25 text-[#c084fc]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-deep-amethyst/10 to-sapphire-blue/10 border border-deep-amethyst/25 text-deep-amethyst">
+                <span className="w-1.5 h-1.5 rounded-full bg-deep-amethyst animate-pulse" />
                 Decentralized Builder · LVL 9
               </span>
               {/* Network badge */}
@@ -144,7 +111,7 @@ const Hero = ({ defer3DLoading = false }) => {
             </div>
 
             {/* Greeting */}
-            <p className="text-[#3ce6f9] font-semibold mb-3 sm:mb-4 text-base sm:text-lg animate-fade-in-up opacity-0 stagger-2">
+            <p className="text-[#d4af37] font-semibold mb-3 sm:mb-4 text-base sm:text-lg animate-fade-in-up opacity-0 stagger-2">
               Hello, I'm
             </p>
 
@@ -152,7 +119,7 @@ const Hero = ({ defer3DLoading = false }) => {
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text neon-text-gradient neon-pulse mb-4 sm:mb-6 animate-fade-in-up opacity-0 stagger-2 font-black px-2"
               style={{
-                textShadow: '0 0 10px rgba(60, 230, 249, 0.8), 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(192, 132, 252, 0.4), 0 0 80px rgba(60, 230, 249, 0.3), 0 0 120px rgba(168, 85, 247, 0.2)'
+                textShadow: '0 0 10px rgba(212, 175, 55, 0.8), 0 0 20px rgba(60, 230, 249, 0.6), 0 0 40px rgba(168, 85, 247, 0.4), 0 0 80px rgba(212, 175, 55, 0.3), 0 0 120px rgba(60, 230, 249, 0.2)'
               }}
             >
               {portfolioData.hero.name}
@@ -160,12 +127,12 @@ const Hero = ({ defer3DLoading = false }) => {
 
             {/* Typing Animation for Roles - Responsive sizing */}
             <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-200 mb-4 sm:mb-6 animate-fade-in-up opacity-0 stagger-3 min-h-[48px] sm:min-h-[60px] md:min-h-[72px] flex items-center justify-center px-2">
-              <span className="text-[#3ce6f9] text-sm sm:text-base">&lt;</span>
-              <span className="mx-1 sm:mx-2 text-transparent bg-clip-text bg-gradient-to-r from-[#3ce6f9] to-[#c084fc]">
+              <span className="text-[#d4af37] text-sm sm:text-base">&lt;</span>
+              <span className="mx-1 sm:mx-2 text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#3ce6f9] to-[#a855f7]">
                 {displayText}
               </span>
               <span className="typing-cursor" aria-hidden="true" />
-              <span className="text-[#3ce6f9] text-sm sm:text-base">/&gt;</span>
+              <span className="text-[#d4af37] text-sm sm:text-base">/&gt;</span>
             </div>
 
             {/* Tagline - Responsive text */}
@@ -186,7 +153,7 @@ const Hero = ({ defer3DLoading = false }) => {
                   size="lg"
                   className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg neon-glow-pulse-cyan will-change-transform hover:scale-105 transition-transform duration-300 min-h-[48px]"
                   style={{
-                    boxShadow: '0 0 20px rgba(60, 230, 249, 0.4), 0 0 40px rgba(60, 230, 249, 0.2)'
+                    boxShadow: '0 0 20px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.2)'
                   }}
                 >
                   <span className="flex items-center gap-2 relative z-10">
@@ -210,7 +177,7 @@ const Hero = ({ defer3DLoading = false }) => {
                   size="lg"
                   className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg will-change-transform hover:scale-105 transition-transform duration-300 neon-border-glow-purple min-h-[48px]"
                   style={{
-                    boxShadow: '0 0 15px rgba(192, 132, 252, 0.3)'
+                    boxShadow: '0 0 15px rgba(212, 175, 55, 0.3)'
                   }}
                 >
                   <span className="flex items-center gap-2 relative z-10">
@@ -231,12 +198,12 @@ const Hero = ({ defer3DLoading = false }) => {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative text-gray-400 hover:text-[#3ce6f9] transition-all duration-300 transform p-2 sm:p-3 will-change-transform"
+                  className="group relative text-gray-400 hover:text-[#d4af37] transition-all duration-300 transform p-2 sm:p-3 will-change-transform"
                   aria-label={`Visit ${platform} profile`}
                   title={`Connect on ${platform.charAt(0).toUpperCase() + platform.slice(1)}`}
                 >
                   {/* Glow effect on hover */}
-                  <span className="absolute inset-0 bg-[#3ce6f9]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-0 group-hover:scale-150" />
+                  <span className="absolute inset-0 bg-[#d4af37]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-0 group-hover:scale-150" />
 
                   {/* Icon */}
                   <span className="relative z-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6 inline-block">
@@ -244,7 +211,7 @@ const Hero = ({ defer3DLoading = false }) => {
                   </span>
 
                   {/* Underline effect */}
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#3ce6f9] to-[#a855f7] transition-all duration-300 group-hover:w-8"></span>
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#d4af37] to-[#3ce6f9] transition-all duration-300 group-hover:w-8"></span>
                 </a>
               ))}
             </div>
@@ -261,13 +228,13 @@ const Hero = ({ defer3DLoading = false }) => {
           className="cursor-pointer group flex flex-col items-center gap-2"
           aria-label="Scroll to about section"
         >
-          <span className="text-gray-400 text-sm mb-1 group-hover:text-[#3ce6f9] transition-all duration-300 group-hover:translate-y-1 inline-block">
+          <span className="text-gray-400 text-sm mb-1 group-hover:text-[#d4af37] transition-all duration-300 group-hover:translate-y-1 inline-block">
             Scroll Down
           </span>
           <div className="relative">
-            <div className="absolute inset-0 bg-[#3ce6f9]/30 rounded-full blur-lg group-hover:blur-xl transition-all duration-300 scale-100 group-hover:scale-125" />
+            <div className="absolute inset-0 bg-[#d4af37]/30 rounded-full blur-lg group-hover:blur-xl transition-all duration-300 scale-100 group-hover:scale-125" />
             <svg
-              className="w-8 h-8 text-gray-400 group-hover:text-[#3ce6f9] transition-all duration-300 animate-bounce relative z-10 group-hover:scale-110"
+              className="w-8 h-8 text-gray-400 group-hover:text-[#d4af37] transition-all duration-300 animate-bounce relative z-10 group-hover:scale-110"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

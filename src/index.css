@@ -5,7 +5,17 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #1A1A2E;
+
+  /* Premium Color Palette */
+  --primary-dark: #1A1A2E;
+  --gold-luster: #D4AF37;
+  --sapphire-blue: #1E40AF;
+  --deep-amethyst: #6B46C1;
+  --emerald-success: #10B981;
+  --text-primary: #FFFFFF;
+  --text-secondary: #d1d5db;
+  --text-muted: #9CA3AF;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

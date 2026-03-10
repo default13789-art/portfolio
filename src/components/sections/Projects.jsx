@@ -53,18 +53,18 @@ const Projects = () => {
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="glow-orb w-96 h-96 bg-[#05b5d4]/20 top-20 -left-48"></div>
-        <div className="glow-orb w-96 h-96 bg-[#a855f7]/20 bottom-20 -right-48"></div>
+        <div className="glow-orb w-96 h-96 bg-deep-amethyst/20 bottom-20 -right-48"></div>
       </div>
 
       <div className="section-container relative z-10">
         {/* Section Header */}
         <div className={`reveal-section-header ${isVisible ? 'reveal-active' : ''} text-center mb-12`}>
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono bg-[#a855f7]/5 border border-[#a855f7]/20 text-[#c084fc]/70 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] animate-pulse" />
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono bg-deep-amethyst/5 border border-deep-amethyst/20 text-deep-amethyst/70 mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-deep-amethyst animate-pulse" />
             0x03 · PROJECT REGISTRY
           </span>
           <h2 className="heading-lg gradient-text mb-4">Projects</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#05b5d4] to-[#a855f7] mx-auto rounded-full mb-6 animate-pulse-glow"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-sapphire-blue to-deep-amethyst mx-auto rounded-full mb-6 animate-pulse-glow"></div>
           <p className="body-text max-w-2xl mx-auto">
             On-chain proof of work. Every project is a deployed block in my builder history.
           </p>
@@ -76,40 +76,40 @@ const Projects = () => {
             onClick={() => setFilter('all')}
             className={`group relative px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform will-change-transform ${
               filter === 'all'
-                ? 'bg-gradient-to-r from-[#05b5d4] to-[#a855f7] text-white shadow-lg shadow-[#05b5d4]/30 scale-105'
-                : 'bg-[#1a1a24] text-gray-400 hover:text-white hover:bg-[#1a1a24]/80 border border-transparent hover:border-[#05b5d4]/30 hover:scale-105 hover:shadow-lg hover:shadow-[#05b5d4]/20'
+                ? 'bg-gradient-to-r from-sapphire-blue to-deep-amethyst text-white shadow-lg shadow-sapphire-blue/30 scale-105'
+                : 'bg-[#1a1a24] text-gray-400 hover:text-white hover:bg-[#1a1a24]/80 border border-transparent hover:border-sapphire-blue/30 hover:scale-105 hover:shadow-lg hover:shadow-sapphire-blue/20'
             }`}
             aria-pressed={filter === 'all'}
             aria-label="Show all projects"
           >
             <span className="relative z-10">All Projects</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#05b5d4] to-[#a855f7] rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-sapphire-blue to-deep-amethyst rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md"></span>
           </button>
           <button
             onClick={() => setFilter('featured')}
             className={`group relative px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform will-change-transform ${
               filter === 'featured'
-                ? 'bg-gradient-to-r from-[#05b5d4] to-[#a855f7] text-white shadow-lg shadow-[#05b5d4]/30 scale-105'
-                : 'bg-[#1a1a24] text-gray-400 hover:text-white hover:bg-[#1a1a24]/80 border border-transparent hover:border-[#05b5d4]/30 hover:scale-105 hover:shadow-lg hover:shadow-[#05b5d4]/20'
+                ? 'bg-gradient-to-r from-sapphire-blue to-deep-amethyst text-white shadow-lg shadow-sapphire-blue/30 scale-105'
+                : 'bg-[#1a1a24] text-gray-400 hover:text-white hover:bg-[#1a1a24]/80 border border-transparent hover:border-sapphire-blue/30 hover:scale-105 hover:shadow-lg hover:shadow-sapphire-blue/20'
             }`}
             aria-pressed={filter === 'featured'}
             aria-label="Show featured projects"
           >
             <span className="relative z-10">Featured</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#05b5d4] to-[#a855f7] rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-sapphire-blue to-deep-amethyst rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md"></span>
           </button>
           <button
             onClick={() => setFilter('other')}
             className={`group relative px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform will-change-transform ${
               filter === 'other'
-                ? 'bg-gradient-to-r from-[#05b5d4] to-[#a855f7] text-white shadow-lg shadow-[#05b5d4]/30 scale-105'
-                : 'bg-[#1a1a24] text-gray-400 hover:text-white hover:bg-[#1a1a24]/80 border border-transparent hover:border-[#05b5d4]/30 hover:scale-105 hover:shadow-lg hover:shadow-[#05b5d4]/20'
+                ? 'bg-gradient-to-r from-sapphire-blue to-deep-amethyst text-white shadow-lg shadow-sapphire-blue/30 scale-105'
+                : 'bg-[#1a1a24] text-gray-400 hover:text-white hover:bg-[#1a1a24]/80 border border-transparent hover:border-sapphire-blue/30 hover:scale-105 hover:shadow-lg hover:shadow-sapphire-blue/20'
             }`}
             aria-pressed={filter === 'other'}
             aria-label="Show other projects"
           >
             <span className="relative z-10">Others</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#05b5d4] to-[#a855f7] rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-sapphire-blue to-deep-amethyst rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md"></span>
           </button>
         </div>
 
@@ -123,14 +123,14 @@ const Projects = () => {
             >
               <TiltCard
                 tiltIntensity={isMobile ? 4 : 12}
-                glowColor={index % 2 === 0 ? '#3ce6f9' : '#a855f7'}
+                glowColor={index % 2 === 0 ? '#1E40AF' : '#6B46C1'}
                 className="group h-full"
               >
                 {/* Project Image */}
                 <div className="project-image-container relative overflow-hidden rounded-lg mb-4 aspect-video bg-[#1a1a24]">
                   {!imageLoaded[project.id] && (
                     <div className="absolute inset-0 flex items-center justify-center bg-[#1a1a24] animate-pulse">
-                      <div className="w-12 h-12 border-4 border-[#05b5d4]/30 border-t-[#05b5d4] rounded-full animate-spin"></div>
+                      <div className="w-12 h-12 border-4 border-sapphire-blue/30 border-t-sapphire-blue rounded-full animate-spin"></div>
                     </div>
                   )}
                   <img
@@ -152,8 +152,8 @@ const Projects = () => {
                       project.featured
                         ? 'bg-gradient-to-r from-[#f59e0b]/20 to-[#ef4444]/20 border border-[#f59e0b]/40 text-[#fbbf24]'
                         : index % 2 === 0
-                          ? 'bg-[#a855f7]/15 border border-[#a855f7]/30 text-[#c084fc]'
-                          : 'bg-[#3ce6f9]/10 border border-[#3ce6f9]/25 text-[#3ce6f9]'
+                          ? 'bg-deep-amethyst/15 border border-deep-amethyst/30 text-deep-amethyst'
+                          : 'bg-sapphire-blue/10 border border-sapphire-blue/25 text-sapphire-blue'
                     }`}>
                       ◆ {project.featured ? 'LEGENDARY' : index % 2 === 0 ? 'RARE' : 'COMMON'}
                     </span>
@@ -168,7 +168,7 @@ const Projects = () => {
 
                 <CardContent className="card-content flex flex-col h-full">
                   {/* Project Title */}
-                  <h3 className="heading-md mb-2 group-hover:text-[#3ce6f9] transition-colors duration-300">
+                  <h3 className="heading-md mb-2 group-hover:text-sapphire-blue transition-colors duration-300">
                     {project.title}
                   </h3>
 
@@ -182,9 +182,9 @@ const Projects = () => {
                     {project.tech.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="tech-tag inline-flex items-center gap-1 px-2.5 py-0.5 bg-[#0a0a0f] text-[#3ce6f9] text-xs font-mono rounded-md border border-[#3ce6f9]/15 hover:border-[#3ce6f9]/35 hover:bg-[#3ce6f9]/5 cursor-default transition-all"
+                        className="tech-tag inline-flex items-center gap-1 px-2.5 py-0.5 bg-[#0a0a0f] text-sapphire-blue text-xs font-mono rounded-md border border-sapphire-blue/15 hover:border-sapphire-blue/35 hover:bg-sapphire-blue/5 cursor-default transition-all"
                       >
-                        <span className="w-1 h-1 rounded-full bg-[#3ce6f9]/60" />
+                        <span className="w-1 h-1 rounded-full bg-sapphire-blue/60" />
                         {tech}
                       </span>
                     ))}
