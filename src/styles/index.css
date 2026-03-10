@@ -2055,6 +2055,285 @@ body::after {
 }
 
 /* ------------------------
+   CYBERPUNK CLOCK WIDGET
+   ------------------------ */
+
+.cyberpunk-clock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(10, 10, 15, 0.95) 0%, rgba(20, 20, 35, 0.95) 100%);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  min-width: 180px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.1), inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Scanline effect */
+.cyberpunk-clock .scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.4), transparent);
+  animation: scanline 3s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* Top decoration bar */
+.cyberpunk-clock .cyber-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00f3ff, #d946ef, #ffff00);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Clock sections */
+.cyberpunk-clock .clock-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cyberpunk-clock .clock-label {
+  font-size: 0.6rem;
+  color: rgba(0, 243, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.cyberpunk-clock .clock-time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00f3ff;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.8), 0 0 20px rgba(0, 243, 255, 0.4);
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cyberpunk-clock .clock-date {
+  font-size: 0.8rem;
+  color: #f3d4ff;
+  text-shadow: 0 0 8px rgba(217, 70, 239, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cyberpunk-clock .clock-location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  color: #ffff00;
+  text-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
+  letter-spacing: 1px;
+}
+
+.cyberpunk-clock .loc-icon {
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Weather section */
+.cyberpunk-clock .weather-section {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cyberpunk-clock .weather-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cyberpunk-clock .weather-icon {
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.6));
+}
+
+.cyberpunk-clock .weather-temp {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #00f3ff;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+}
+
+.cyberpunk-clock .weather-humidity {
+  font-size: 0.65rem;
+  color: rgba(217, 70, 239, 0.8);
+}
+
+.cyberpunk-clock .weather-loading {
+  display: flex;
+  justify-content: center;
+}
+
+.cyberpunk-clock .loading-dot {
+  width: 8px;
+  height: 8px;
+  background: #00f3ff;
+  border-radius: 50%;
+  animation: pulse-loading 1s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+}
+
+@keyframes pulse-loading {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+}
+
+/* Status indicators */
+.cyberpunk-clock .status-indicators {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.cyberpunk-clock .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+.cyberpunk-clock .status-dot.online {
+  background: #00ff88;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
+  animation-delay: 0s;
+}
+
+.cyberpunk-clock .status-dot.active {
+  background: #ffff00;
+  box-shadow: 0 0 8px rgba(255, 255, 0, 0.8);
+  animation-delay: 0.3s;
+}
+
+.cyberpunk-clock .status-dot.sync {
+  background: #d946ef;
+  box-shadow: 0 0 8px rgba(217, 70, 239, 0.8);
+  animation-delay: 0.6s;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* Corner accents */
+.cyberpunk-clock .corner-tl,
+.cyberpunk-clock .corner-tr,
+.cyberpunk-clock .corner-bl,
+.cyberpunk-clock .corner-br {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(0, 243, 255, 0.5);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.cyberpunk-clock .corner-tl {
+  top: 2px;
+  left: 2px;
+  border-width: 2px 0 0 2px;
+}
+
+.cyberpunk-clock .corner-tr {
+  top: 2px;
+  right: 2px;
+  border-width: 2px 2px 0 0;
+}
+
+.cyberpunk-clock .corner-bl {
+  bottom: 2px;
+  left: 2px;
+  border-width: 0 0 2px 2px;
+}
+
+.cyberpunk-clock .corner-br {
+  bottom: 2px;
+  right: 2px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Glitch effect on hover */
+.cyberpunk-clock.glitch-active {
+  animation: glitch-shake 0.2s ease-in-out;
+}
+
+.cyberpunk-clock.glitch-active .clock-time {
+  animation: glitch-text 0.2s ease-in-out infinite;
+}
+
+@keyframes glitch-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes glitch-text {
+  0%, 100% { text-shadow: 0 0 10px rgba(0, 243, 255, 0.8), 0 0 20px rgba(0, 243, 255, 0.4); }
+  25% { text-shadow: 2px 0 rgba(217, 70, 239, 0.8), -2px 0 rgba(255, 255, 0, 0.8); }
+  50% { text-shadow: -2px 0 rgba(0, 243, 255, 0.8), 2px 0 rgba(217, 70, 239, 0.8); }
+  75% { text-shadow: 1px 0 rgba(255, 255, 0, 0.8), -1px 0 rgba(0, 243, 255, 0.8); }
+}
+
+/* Hover effect */
+.cyberpunk-clock:hover {
+  border-color: rgba(0, 243, 255, 0.6);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.2), inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.cyberpunk-clock:hover .clock-time {
+  text-shadow: 0 0 15px rgba(0, 243, 255, 1), 0 0 30px rgba(0, 243, 255, 0.6);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .cyberpunk-clock {
+    min-width: 160px;
+    padding: 0.6rem 0.8rem;
+    gap: 0.4rem;
+  }
+
+  .cyberpunk-clock .clock-time {
+    font-size: 1.2rem;
+  }
+
+  .cyberpunk-clock .clock-date {
+    font-size: 0.7rem;
+  }
+
+  .cyberpunk-clock .clock-location {
+    font-size: 0.6rem;
+  }
+}
+
+/* ------------------------
    PARTICLE EFFECTS
    ------------------------ */
 

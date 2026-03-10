@@ -1,8 +1,7 @@
 import { Canvas } from '@react-three/fiber'
-import { Suspense, useMemo, lazy, useState, useEffect } from 'react'
+import { Suspense, lazy, useState, useEffect } from 'react'
 
 // Lazy load individual 3D components for better performance
-const Stars     = lazy(() => import('./Stars'))
 const SolarSystem = lazy(() => import('./SolarSystem'))
 const CameraRig = lazy(() => import('./CameraRig'))
 
@@ -10,14 +9,13 @@ const CameraRig = lazy(() => import('./CameraRig'))
  * UniverseScene – Solar System background
  *
  * Features:
- * - Deep-space starfield (twinkling)
+ * - Pure black background
  * - Full solar system: Sun + 8 planets with rings, moons, asteroid belt
  * - Smooth orbital & self-rotation animations
  * - Subtle mouse-parallax camera rig
  * - Performance optimised (adaptive pixel ratio, lazy chunks)
  */
 export default function UniverseScene({
-  starCount = 4000,
   className = '',
   style = {}
 }) {
@@ -27,8 +25,6 @@ export default function UniverseScene({
     // Safe access to window.devicePixelRatio after mount
     setDpr(Math.min(window.devicePixelRatio || 1, 2))
   }, [])
-
-  const adjustedStarCount = useMemo(() => starCount, [starCount])
 
   return (
     <div
@@ -57,18 +53,13 @@ export default function UniverseScene({
           far: 1000,
         }}
         shadows
-        style={{ background: '#020208' }}
+        style={{ background: '#000000' }}
       >
-        {/* Deep space background colour */}
-        <color attach="background" args={['#020208']} />
+        {/* Pure black background */}
+        <color attach="background" args={['#000000']} />
 
         {/* Distant fog to fade far objects */}
-        <fog attach="fog" args={['#020208', 80, 200]} />
-
-        {/* Starfield */}
-        <Suspense fallback={null}>
-          <Stars count={adjustedStarCount} />
-        </Suspense>
+        <fog attach="fog" args={['#000000', 80, 200]} />
 
         {/* Solar system (Sun + planets + rings + asteroid belt) */}
         <Suspense fallback={null}>

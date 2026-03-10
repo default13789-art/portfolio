@@ -1,0 +1,101 @@
+/* Cyberpunk Clock Widget Styles */
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+}
+
+.cyberpunk-clock-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cyberpunk-clock-container .animate-glitch {
+  animation: glitch 0.2s infinite;
+}
+
+.cyberpunk-clock-container .scanline {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(34, 211, 238, 0.1),
+    transparent
+  );
+  animation: scanline 3s linear infinite;
+}
+
+.cyberpunk-clock-container .matrix-bg {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(34, 211, 238, 0.03) 1px,
+      rgba(34, 211, 238, 0.03) 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(34, 211, 238, 0.03) 1px,
+      rgba(34, 211, 238, 0.03) 2px
+    );
+}
+
+.cyberpunk-clock-container .neon-text {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .cyberpunk-clock-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cyberpunk-clock-container {
+    transform: scale(0.9);
+  }
+}

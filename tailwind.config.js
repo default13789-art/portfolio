@@ -15,6 +15,13 @@ export default {
         'text-primary': '#FFFFFF',
         'text-secondary': '#d1d5db',
         'text-muted': '#9CA3AF',
+        // Cyberpunk neon colors
+        'neon-cyan': '#00f3ff',
+        'neon-magenta': '#ff00ff',
+        'neon-yellow': '#ffff00',
+        'neon-pink': '#ff0099',
+        'neon-green': '#00ff41',
+        'magenta-500': '#d946ef',
       },
       fontFamily: {
         // Primary display font: elegant and luxurious serif

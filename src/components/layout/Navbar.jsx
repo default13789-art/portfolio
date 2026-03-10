@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import CyberpunkClock from '../widgets/CyberpunkClock';
 
 
 const Navbar = () => {
@@ -244,7 +245,8 @@ const Navbar = () => {
               </Link>
             ))}
 
-
+            {/* Cyberpunk Clock Widget */}
+            <CyberpunkClock />
           </div>
 
           {/* Mobile Menu Button */}
@@ -300,6 +302,11 @@ const Navbar = () => {
                   <span className="absolute inset-0 bg-gradient-to-r from-sapphire-blue/10 to-deep-amethyst/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
                 </Link>
               ))}
+
+              {/* Mobile Clock Widget */}
+              <div className="mt-4">
+                <CyberpunkClock />
+              </div>
             </div>
           </div>
         )}
