@@ -142,27 +142,27 @@ const RocketCursor = () => {
       const dy = mouseY - rocketY;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      // Smooth follow with velocity
-      const speed = 0.18;
-      const friction = 0.85;
+      // Snappy follow with responsive physics
+      const speed = 0.35;
+      const friction = 0.92;
 
-      velocityX += dx * speed * 0.1;
-      velocityY += dy * speed * 0.1;
+      velocityX += dx * speed;
+      velocityY += dy * speed;
       velocityX *= friction;
       velocityY *= friction;
 
-      rocketX += velocityX * 0.5;
-      rocketY += velocityY * 0.5;
+      rocketX += velocityX;
+      rocketY += velocityY;
 
       // Calculate rotation based on velocity direction
       let rotation = 0;
-      if (Math.abs(velocityX) > 0.1 || Math.abs(velocityY) > 0.1) {
+      if (Math.abs(velocityX) > 0.5 || Math.abs(velocityY) > 0.5) {
         rotation = Math.atan2(velocityY, velocityX) * 180 / Math.PI + 90;
-        // Smooth rotation
+        // Snappy rotation with smoothing
         let rotationDiff = rotation - lastRotation;
         if (rotationDiff > 180) rotationDiff -= 360;
         if (rotationDiff < -180) rotationDiff += 360;
-        rotation = lastRotation + rotationDiff * 0.15;
+        rotation = lastRotation + rotationDiff * 0.35;
       }
       lastRotation = rotation;
 
@@ -192,7 +192,7 @@ const RocketCursor = () => {
 
       // Create smoke particles when moving
       const speedMagnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
-      if (speedMagnitude > 2) {
+      if (speedMagnitude > 3) {
         smokeTimer++;
         if (smokeTimer >= 3) { // Emit smoke every 3 frames
           const smokePos = getSmokePosition(rocketX, rocketY, rotation);
@@ -269,7 +269,7 @@ const RocketCursor = () => {
           pointerEvents: 'none',
           zIndex: 10000,
           transform: 'translate(0, 0)',
-          transition: 'transform 0.05s linear',
+          transition: 'transform 0.02s linear',
           willChange: 'transform',
         }}
       >
