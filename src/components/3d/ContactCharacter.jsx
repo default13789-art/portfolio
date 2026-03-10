@@ -31,41 +31,6 @@ export default function ContactCharacter({ isHovered = false, isSubmitting = fal
   const rightArmRef = useRef()
   const envelopeRef = useRef()
 
-  // Memoize materials for performance
-  const materials = useMemo(() => {
-    return {
-      body: new THREE.MeshStandardMaterial({
-        color: new THREE.Color('#3ce6f9'),
-        metalness: 0.3,
-        roughness: 0.4,
-        emissive: new THREE.Color('#3ce6f9'),
-        emissiveIntensity: 0.2
-      }),
-      accent: new THREE.MeshStandardMaterial({
-        color: new THREE.Color('#a855f7'),
-        metalness: 0.5,
-        roughness: 0.3,
-        emissive: new THREE.Color('#a855f7'),
-        emissiveIntensity: 0.3
-      }),
-      white: new THREE.MeshStandardMaterial({
-        color: new THREE.Color('#ffffff'),
-        metalness: 0.1,
-        roughness: 0.5
-      }),
-      eye: new THREE.MeshStandardMaterial({
-        color: new THREE.Color('#00ffff'),
-        emissive: new THREE.Color('#00ffff'),
-        emissiveIntensity: 0.8
-      }),
-      envelope: new THREE.MeshStandardMaterial({
-        color: new THREE.Color('#fbbf24'),
-        metalness: 0.2,
-        roughness: 0.6
-      })
-    }
-  }, [])
-
   // Animation loop
   useFrame((state) => {
     if (!groupRef.current) return
@@ -149,31 +114,67 @@ export default function ContactCharacter({ isHovered = false, isSubmitting = fal
       {/* Body - rounded rectangle */}
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[0.6, 0.7, 0.5]} />
-        {materials.body}
+        <meshStandardMaterial
+          color={new THREE.Color('#3ce6f9')}
+          metalness={0.3}
+          roughness={0.4}
+          emissive={new THREE.Color('#3ce6f9')}
+          emissiveIntensity={0.2}
+        />
       </mesh>
 
       {/* Rounded corners for body */}
       <mesh position={[0.25, 0.3, 0]}>
         <sphereGeometry args={[0.15, 16, 16]} />
-        {materials.body}
+        <meshStandardMaterial
+          color={new THREE.Color('#3ce6f9')}
+          metalness={0.3}
+          roughness={0.4}
+          emissive={new THREE.Color('#3ce6f9')}
+          emissiveIntensity={0.2}
+        />
       </mesh>
       <mesh position={[-0.25, 0.3, 0]}>
         <sphereGeometry args={[0.15, 16, 16]} />
-        {materials.body}
+        <meshStandardMaterial
+          color={new THREE.Color('#3ce6f9')}
+          metalness={0.3}
+          roughness={0.4}
+          emissive={new THREE.Color('#3ce6f9')}
+          emissiveIntensity={0.2}
+        />
       </mesh>
       <mesh position={[0.25, -0.3, 0]}>
         <sphereGeometry args={[0.15, 16, 16]} />
-        {materials.body}
+        <meshStandardMaterial
+          color={new THREE.Color('#3ce6f9')}
+          metalness={0.3}
+          roughness={0.4}
+          emissive={new THREE.Color('#3ce6f9')}
+          emissiveIntensity={0.2}
+        />
       </mesh>
       <mesh position={[-0.25, -0.3, 0]}>
         <sphereGeometry args={[0.15, 16, 16]} />
-        {materials.body}
+        <meshStandardMaterial
+          color={new THREE.Color('#3ce6f9')}
+          metalness={0.3}
+          roughness={0.4}
+          emissive={new THREE.Color('#3ce6f9')}
+          emissiveIntensity={0.2}
+        />
       </mesh>
 
       {/* Chest display/panel */}
       <mesh position={[0, 0.1, 0.26]}>
         <boxGeometry args={[0.3, 0.3, 0.05]} />
-        {materials.accent}
+        <meshStandardMaterial
+          color={new THREE.Color('#a855f7')}
+          metalness={0.5}
+          roughness={0.3}
+          emissive={new THREE.Color('#a855f7')}
+          emissiveIntensity={0.3}
+        />
       </mesh>
 
       {/* Chest screen glow */}
@@ -191,57 +192,113 @@ export default function ContactCharacter({ isHovered = false, isSubmitting = fal
         {/* Head - rounded rectangle */}
         <mesh>
           <boxGeometry args={[0.5, 0.45, 0.45]} />
-          {materials.body}
+          <meshStandardMaterial
+            color={new THREE.Color('#3ce6f9')}
+            metalness={0.3}
+            roughness={0.4}
+            emissive={new THREE.Color('#3ce6f9')}
+            emissiveIntensity={0.2}
+          />
         </mesh>
 
         {/* Head rounded corners */}
         <mesh position={[0.2, 0.2, 0]}>
           <sphereGeometry args={[0.12, 16, 16]} />
-          {materials.body}
+          <meshStandardMaterial
+            color={new THREE.Color('#3ce6f9')}
+            metalness={0.3}
+            roughness={0.4}
+            emissive={new THREE.Color('#3ce6f9')}
+            emissiveIntensity={0.2}
+          />
         </mesh>
         <mesh position={[-0.2, 0.2, 0]}>
           <sphereGeometry args={[0.12, 16, 16]} />
-          {materials.body}
+          <meshStandardMaterial
+            color={new THREE.Color('#3ce6f9')}
+            metalness={0.3}
+            roughness={0.4}
+            emissive={new THREE.Color('#3ce6f9')}
+            emissiveIntensity={0.2}
+          />
         </mesh>
         <mesh position={[0.2, -0.2, 0]}>
           <sphereGeometry args={[0.12, 16, 16]} />
-          {materials.body}
+          <meshStandardMaterial
+            color={new THREE.Color('#3ce6f9')}
+            metalness={0.3}
+            roughness={0.4}
+            emissive={new THREE.Color('#3ce6f9')}
+            emissiveIntensity={0.2}
+          />
         </mesh>
         <mesh position={[-0.2, -0.2, 0]}>
           <sphereGeometry args={[0.12, 16, 16]} />
-          {materials.body}
+          <meshStandardMaterial
+            color={new THREE.Color('#3ce6f9')}
+            metalness={0.3}
+            roughness={0.4}
+            emissive={new THREE.Color('#3ce6f9')}
+            emissiveIntensity={0.2}
+          />
         </mesh>
 
         {/* Face plate */}
         <mesh position={[0, 0, 0.23]}>
           <boxGeometry args={[0.35, 0.3, 0.05]} />
-          {materials.white}
+          <meshStandardMaterial
+            color={new THREE.Color('#ffffff')}
+            metalness={0.1}
+            roughness={0.5}
+          />
         </mesh>
 
         {/* Eyes */}
         <mesh position={[-0.1, 0.05, 0.26]}>
           <sphereGeometry args={[0.08, 16, 16]} />
-          {materials.eye}
+          <meshStandardMaterial
+            color={new THREE.Color('#00ffff')}
+            emissive={new THREE.Color('#00ffff')}
+            emissiveIntensity={0.8}
+          />
         </mesh>
         <mesh position={[0.1, 0.05, 0.26]}>
           <sphereGeometry args={[0.08, 16, 16]} />
-          {materials.eye}
+          <meshStandardMaterial
+            color={new THREE.Color('#00ffff')}
+            emissive={new THREE.Color('#00ffff')}
+            emissiveIntensity={0.8}
+          />
         </mesh>
 
         {/* Eye highlights */}
         <mesh position={[-0.08, 0.07, 0.32]}>
           <sphereGeometry args={[0.025, 8, 8]} />
-          {materials.white}
+          <meshStandardMaterial
+            color={new THREE.Color('#ffffff')}
+            metalness={0.1}
+            roughness={0.5}
+          />
         </mesh>
         <mesh position={[0.12, 0.07, 0.32]}>
           <sphereGeometry args={[0.025, 8, 8]} />
-          {materials.white}
+          <meshStandardMaterial
+            color={new THREE.Color('#ffffff')}
+            metalness={0.1}
+            roughness={0.5}
+          />
         </mesh>
 
         {/* Antenna */}
         <mesh position={[0, 0.3, 0]}>
           <cylinderGeometry args={[0.02, 0.02, 0.15]} />
-          {materials.accent}
+          <meshStandardMaterial
+            color={new THREE.Color('#a855f7')}
+            metalness={0.5}
+            roughness={0.3}
+            emissive={new THREE.Color('#a855f7')}
+            emissiveIntensity={0.3}
+          />
         </mesh>
         <mesh position={[0, 0.4, 0]}>
           <sphereGeometry args={[0.05, 16, 16]} />
@@ -258,17 +315,33 @@ export default function ContactCharacter({ isHovered = false, isSubmitting = fal
         {/* Shoulder */}
         <mesh position={[0, 0, 0]}>
           <sphereGeometry args={[0.1, 16, 16]} />
-          {materials.accent}
+          <meshStandardMaterial
+            color={new THREE.Color('#a855f7')}
+            metalness={0.5}
+            roughness={0.3}
+            emissive={new THREE.Color('#a855f7')}
+            emissiveIntensity={0.3}
+          />
         </mesh>
         {/* Arm */}
         <mesh position={[-0.15, 0, 0]}>
           <boxGeometry args={[0.3, 0.12, 0.12]} />
-          {materials.body}
+          <meshStandardMaterial
+            color={new THREE.Color('#3ce6f9')}
+            metalness={0.3}
+            roughness={0.4}
+            emissive={new THREE.Color('#3ce6f9')}
+            emissiveIntensity={0.2}
+          />
         </mesh>
         {/* Hand */}
         <mesh position={[-0.32, 0, 0]}>
           <sphereGeometry args={[0.08, 16, 16]} />
-          {materials.white}
+          <meshStandardMaterial
+            color={new THREE.Color('#ffffff')}
+            metalness={0.1}
+            roughness={0.5}
+          />
         </mesh>
       </group>
 
@@ -277,19 +350,35 @@ export default function ContactCharacter({ isHovered = false, isSubmitting = fal
         {/* Shoulder */}
         <mesh position={[0, 0, 0]}>
           <sphereGeometry args={[0.1, 16, 16]} />
-          {materials.accent}
+          <meshStandardMaterial
+            color={new THREE.Color('#a855f7')}
+            metalness={0.5}
+            roughness={0.3}
+            emissive={new THREE.Color('#a855f7')}
+            emissiveIntensity={0.3}
+          />
         </mesh>
         {/* Arm */}
         <mesh position={[0.15, 0, 0]}>
           <boxGeometry args={[0.3, 0.12, 0.12]} />
-          {materials.body}
+          <meshStandardMaterial
+            color={new THREE.Color('#3ce6f9')}
+            metalness={0.3}
+            roughness={0.4}
+            emissive={new THREE.Color('#3ce6f9')}
+            emissiveIntensity={0.2}
+          />
         </mesh>
         {/* Hand with envelope */}
         <group position={[0.32, 0, 0]} ref={envelopeRef}>
           {/* Envelope */}
           <mesh>
             <boxGeometry args={[0.2, 0.14, 0.02]} />
-            {materials.envelope}
+            <meshStandardMaterial
+              color={new THREE.Color('#fbbf24')}
+              metalness={0.2}
+              roughness={0.6}
+            />
           </mesh>
           {/* Envelope flap */}
           <mesh position={[0, 0.04, 0.01]} rotation={[0.3, 0, 0]}>
