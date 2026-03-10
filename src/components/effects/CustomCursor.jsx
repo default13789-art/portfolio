@@ -1,59 +1,65 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 /**
- * RocketCursor – Custom cursor with rocket icon and smoke trail
+ * PremiumPointerCursor – Custom cursor with standard pointer shape and premium effects
  *
  * Features:
- * - Sleek rocket design matching premium theme
- * - Dynamic smoke particle system from tail
- * - Smooth follow with slight lag for natural feel
- * - Hover and click states
+ * - Standard arrow pointer shape for familiarity
+ * - Premium glow effects with theme colors (Gold, Sapphire, Amethyst)
+ * - Subtle trailing particles for visual interest
+ * - Smooth hover and click animations
  * - ESC toggle for accessibility
+ * - Optimized for performance
  */
-const RocketCursor = () => {
-  const rocketRef = useRef(null);
-  const flameRef = useRef(null);
+const PremiumPointerCursor = () => {
+  const cursorRef = useRef(null);
+  const trailContainerRef = useRef(null);
+  const trailParticlesRef = useRef([]);
+  const particleIdRef = useRef(0);
   const [isEnabled, setIsEnabled] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
-  const smokeContainerRef = useRef(null);
-  const smokeParticlesRef = useRef([]);
-  const smokeIdRef = useRef(0);
 
-  // Create smoke particle
-  const createSmokeParticle = (x, y) => {
-    if (!smokeContainerRef.current) return;
+  // Create trailing particle
+  const createTrailParticle = (x, y) => {
+    if (!trailContainerRef.current) return;
 
     const particle = document.createElement('div');
-    const id = ++smokeIdRef.current;
-    const size = Math.random() * 12 + 6;
-    const duration = Math.random() * 800 + 600;
+    const id = ++particleIdRef.current;
+    const size = Math.random() * 6 + 3;
+    const duration = Math.random() * 400 + 300;
 
-    particle.className = 'rocket-smoke-particle';
+    particle.className = 'cursor-trail-particle';
     particle.style.cssText = `
       position: fixed;
       left: ${x}px;
       top: ${y}px;
       width: ${size}px;
       height: ${size}px;
-      background: radial-gradient(circle,
-        rgba(212, 175, 55, 0.4) 0%,
-        rgba(168, 85, 247, 0.2) 40%,
-        transparent 70%);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9996;
-      opacity: 0.8;
+      opacity: 0.7;
       transform: translate(-50%, -50%);
     `;
 
-    smokeContainerRef.current.appendChild(particle);
-    smokeParticlesRef.current.push({ id, element: particle, created: Date.now() });
+    // Randomize colors for premium effect
+    const colors = [
+      'rgba(212, 175, 55, 0.5)',  // Gold
+      'rgba(30, 64, 175, 0.4)',   // Sapphire
+      'rgba(107, 70, 193, 0.4)',  // Amethyst
+    ];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.background = `radial-gradient(circle, ${color} 0%, transparent 70%)`;
+    particle.style.boxShadow = `0 0 ${size}px ${color}`;
 
-    // Animate the smoke
+    trailContainerRef.current.appendChild(particle);
+    trailParticlesRef.current.push({ id, element: particle, created: Date.now() });
+
+    // Animate the particle
     const startTime = Date.now();
-    const angle = Math.random() * 60 - 30; // -30 to 30 degrees spread
-    const distance = Math.random() * 30 + 20;
+    const driftX = (Math.random() - 0.5) * 20;
+    const driftY = (Math.random() - 0.5) * 20;
 
     const animate = () => {
       const elapsed = Date.now() - startTime;
@@ -61,17 +67,15 @@ const RocketCursor = () => {
 
       if (progress >= 1) {
         particle.remove();
-        smokeParticlesRef.current = smokeParticlesRef.current.filter(p => p.id !== id);
+        trailParticlesRef.current = trailParticlesRef.current.filter(p => p.id !== id);
         return;
       }
 
-      // Move outward and fade
-      const currentDistance = progress * distance;
-      const radian = (angle - 90) * Math.PI / 180;
-      const newX = x + Math.cos(radian) * currentDistance;
-      const newY = y + Math.sin(radian) * currentDistance;
-      const scale = 1 + progress * 1.5;
-      const opacity = 0.8 * (1 - progress);
+      // Subtle drift and fade
+      const newX = x + driftX * progress;
+      const newY = y + driftY * progress;
+      const scale = 1 - progress * 0.5;
+      const opacity = 0.7 * (1 - progress);
 
       particle.style.left = `${newX}px`;
       particle.style.top = `${newY}px`;
@@ -84,40 +88,92 @@ const RocketCursor = () => {
     requestAnimationFrame(animate);
   };
 
+  // Create ripple effect on click
+  const createClickRipple = (x, y) => {
+    if (!trailContainerRef.current) return;
+
+    const ripple = document.createElement('div');
+    const duration = 500;
+
+    ripple.className = 'cursor-click-ripple';
+    ripple.style.cssText = `
+      position: fixed;
+      left: ${x}px;
+      top: ${y}px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9995;
+      transform: translate(-50%, -50%);
+      border: 2px solid rgba(212, 175, 55, 0.8);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.5), inset 0 0 10px rgba(212, 175, 55, 0.3);
+    `;
+
+    trailContainerRef.current.appendChild(ripple);
+
+    const startTime = Date.now();
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = elapsed / duration;
+
+      if (progress >= 1) {
+        ripple.remove();
+        return;
+      }
+
+      const scale = 1 + progress * 3;
+      const opacity = 1 - progress;
+
+      ripple.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      ripple.style.opacity = opacity;
+
+      requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+  };
+
   useEffect(() => {
     if (!isEnabled) return;
 
-    const rocket = rocketRef.current;
-    const flame = flameRef.current;
+    const cursor = cursorRef.current;
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
-    let rocketX = mouseX;
-    let rocketY = mouseY;
-    let velocityX = 0;
-    let velocityY = 0;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
 
-    // Calculate tail position for smoke (bottom of rocket)
-    const getSmokePosition = (rx, ry, rotation) => {
-      const tailOffset = 24;
-      const radian = (rotation - 90) * Math.PI / 180;
-      return {
-        x: rx - Math.cos(radian) * tailOffset,
-        y: ry - Math.sin(radian) * tailOffset
-      };
-    };
-
-    let lastRotation = 0;
-    let smokeTimer = 0;
+    let lastTrailX = mouseX;
+    let lastTrailY = mouseY;
+    let trailTimer = 0;
 
     // Mouse move handler
     const handleMouseMove = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+
+      // Create trail particles on movement
+      const distance = Math.sqrt(
+        Math.pow(mouseX - lastTrailX, 2) + Math.pow(mouseY - lastTrailY, 2)
+      );
+
+      if (distance > 15) {
+        trailTimer++;
+        if (trailTimer >= 2) {
+          createTrailParticle(mouseX, mouseY);
+          lastTrailX = mouseX;
+          lastTrailY = mouseY;
+          trailTimer = 0;
+        }
+      }
     };
 
     // Mouse down handler
-    const handleMouseDown = () => setIsClicking(true);
+    const handleMouseDown = (e) => {
+      setIsClicking(true);
+      createClickRipple(e.clientX, e.clientY);
+    };
 
     // Mouse up handler
     const handleMouseUp = () => setIsClicking(false);
@@ -137,68 +193,21 @@ const RocketCursor = () => {
 
     // Animation loop
     const animate = () => {
-      // Calculate direction to mouse
-      const dx = mouseX - rocketX;
-      const dy = mouseY - rocketY;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+      // Direct, responsive follow with minimal lag
+      const easing = 0.2;
+      cursorX += (mouseX - cursorX) * easing;
+      cursorY += (mouseY - cursorY) * easing;
 
-      // Snappy follow with responsive physics
-      const speed = 0.35;
-      const friction = 0.92;
-
-      velocityX += dx * speed;
-      velocityY += dy * speed;
-      velocityX *= friction;
-      velocityY *= friction;
-
-      rocketX += velocityX;
-      rocketY += velocityY;
-
-      // Calculate rotation based on velocity direction
-      let rotation = 0;
-      if (Math.abs(velocityX) > 0.5 || Math.abs(velocityY) > 0.5) {
-        rotation = Math.atan2(velocityY, velocityX) * 180 / Math.PI + 90;
-        // Snappy rotation with smoothing
-        let rotationDiff = rotation - lastRotation;
-        if (rotationDiff > 180) rotationDiff -= 360;
-        if (rotationDiff < -180) rotationDiff += 360;
-        rotation = lastRotation + rotationDiff * 0.35;
-      }
-      lastRotation = rotation;
-
-      // Update rocket position and rotation
-      if (rocket) {
-        rocket.style.transform = `translate(${rocketX}px, ${rocketY}px) rotate(${rotation}deg)`;
+      // Update cursor position
+      if (cursor) {
+        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
 
         // Update classes for states
-        if (isHovering) rocket.classList.add('hover');
-        else rocket.classList.remove('hover');
+        if (isHovering) cursor.classList.add('hover');
+        else cursor.classList.remove('hover');
 
-        if (isClicking) rocket.classList.add('clicking');
-        else rocket.classList.remove('clicking');
-      }
-
-      // Animate flame
-      if (flame) {
-        const flicker = Math.random() * 0.3 + 0.85;
-        const lengthVar = Math.random() * 0.2 + 0.9;
-        flame.style.transform = `scaleY(${lengthVar}) scaleX(${flicker})`;
-        if (isHovering) {
-          flame.style.opacity = '1';
-        } else {
-          flame.style.opacity = '0.8';
-        }
-      }
-
-      // Create smoke particles when moving
-      const speedMagnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
-      if (speedMagnitude > 3) {
-        smokeTimer++;
-        if (smokeTimer >= 3) { // Emit smoke every 3 frames
-          const smokePos = getSmokePosition(rocketX, rocketY, rotation);
-          createSmokeParticle(smokePos.x, smokePos.y);
-          smokeTimer = 0;
-        }
+        if (isClicking) cursor.classList.add('clicking');
+        else cursor.classList.remove('clicking');
       }
 
       requestAnimationFrame(animate);
@@ -220,9 +229,9 @@ const RocketCursor = () => {
       document.removeEventListener('mouseover', handleMouseEnter);
       document.removeEventListener('mouseout', handleMouseLeave);
 
-      // Clean up smoke particles
-      smokeParticlesRef.current.forEach(p => p.element?.remove());
-      smokeParticlesRef.current = [];
+      // Clean up trail particles
+      trailParticlesRef.current.forEach(p => p.element?.remove());
+      trailParticlesRef.current = [];
     };
   }, [isEnabled, isHovering, isClicking]);
 
@@ -241,27 +250,27 @@ const RocketCursor = () => {
   // Clean up on unmount
   useEffect(() => {
     return () => {
-      smokeParticlesRef.current.forEach(p => p.element?.remove());
+      trailParticlesRef.current.forEach(p => p.element?.remove());
     };
   }, []);
 
   if (!isEnabled) {
     return (
-      <div className="fixed bottom-4 right-4 px-4 py-2 text-xs font-mono text-gold-luster bg-[#1A1A2E]/90 border border-gold-luster/30 rounded-lg backdrop-blur-sm z-[10001]">
-        Press ESC to enable rocket cursor
+      <div className="fixed bottom-4 right-4 px-4 py-2 text-xs font-mono text-[#D4AF37] bg-[#1A1A2E]/90 border border-[#D4AF37]/30 rounded-lg backdrop-blur-sm z-[10001]">
+        Press ESC to enable premium cursor
       </div>
     );
   }
 
   return (
     <>
-      {/* Smoke particle container */}
-      <div ref={smokeContainerRef} className="smoke-container" />
+      {/* Trail particle container */}
+      <div ref={trailContainerRef} className="cursor-trail-container" />
 
-      {/* Rocket cursor */}
+      {/* Premium pointer cursor */}
       <div
-        ref={rocketRef}
-        className="rocket-cursor"
+        ref={cursorRef}
+        className="premium-pointer-cursor"
         style={{
           position: 'fixed',
           top: 0,
@@ -269,102 +278,135 @@ const RocketCursor = () => {
           pointerEvents: 'none',
           zIndex: 10000,
           transform: 'translate(0, 0)',
-          transition: 'transform 0.02s linear',
           willChange: 'transform',
         }}
       >
         <svg
-          width="32"
-          height="48"
-          viewBox="0 0 32 48"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="rocket-svg"
+          className="pointer-svg"
           style={{
-            filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 16px rgba(168, 85, 247, 0.4))',
+            filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 16px rgba(212, 175, 55, 0.4))',
+            transition: 'filter 0.2s ease, transform 0.15s ease',
           }}
         >
-          {/* Rocket body - sleek design */}
           <defs>
-            <linearGradient id="rocketBody" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#D4AF37" />
-              <stop offset="50%" stopColor="#F4D03F" />
-              <stop offset="100%" stopColor="#D4AF37" />
+            {/* Premium gradient for the pointer */}
+            <linearGradient id="pointerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#F4D03F" />
+              <stop offset="50%" stopColor="#D4AF37" />
+              <stop offset="100%" stopColor="#B8962E" />
             </linearGradient>
-            <linearGradient id="rocketWindow" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3CE6F9" />
-              <stop offset="100%" stopColor="#6B46C1" />
-            </linearGradient>
-            <linearGradient id="rocketFlame" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#FF6B35" />
-              <stop offset="50%" stopColor="#F7931E" />
-              <stop offset="100%" stopColor="#FFD700" stopOpacity="0.8" />
-            </linearGradient>
+
+            {/* Glow effect gradient */}
+            <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="rgba(212, 175, 55, 0.3)" />
+              <stop offset="100%" stopColor="rgba(212, 175, 55, 0)" />
+            </radialGradient>
+
+            {/* Clip path for pointer shape */}
+            <clipPath id="pointerClip">
+              <path d="M5.5 3.5L18.5 12L12 13.5L14 20.5L5.5 3.5Z" />
+            </clipPath>
           </defs>
 
-          {/* Main body */}
-          <path
-            d="M16 0 C16 0 24 8 24 20 L24 32 L28 36 L28 40 L24 38 L24 42 L20 44 L16 42 L12 44 L8 42 L8 38 L4 40 L4 36 L8 32 L8 20 C8 8 16 0 16 0Z"
-            fill="url(#rocketBody)"
-            stroke="#B8962E"
-            strokeWidth="1"
-          />
-
-          {/* Window */}
+          {/* Outer glow */}
           <circle
-            cx="16"
-            cy="14"
-            r="5"
-            fill="url(#rocketWindow)"
-            stroke="#2A9DB8"
-            strokeWidth="1.5"
-          />
-
-          {/* Window reflection */}
-          <ellipse
-            cx="14"
+            cx="12"
             cy="12"
-            rx="2"
-            ry="1.5"
-            fill="rgba(255,255,255,0.6)"
+            r="12"
+            fill="url(#glowGradient)"
+            className="pointer-glow"
           />
 
-          {/* Side fins */}
-          <path
-            d="M8 32 L4 44 L8 42 Z"
-            fill="#A8851F"
-            stroke="#B8962E"
-            strokeWidth="0.5"
-          />
-          <path
-            d="M24 32 L28 44 L24 42 Z"
-            fill="#A8851F"
-            stroke="#B8962E"
-            strokeWidth="0.5"
-          />
-
-          {/* Center fin */}
-          <path
-            d="M16 38 L16 46 L14 44 Z"
-            fill="#A8851F"
-            stroke="#B8962E"
-            strokeWidth="0.5"
-          />
-
-          {/* Flame */}
-          <g ref={flameRef} className="rocket-flame" style={{ transformOrigin: 'center 40px' }}>
+          {/* Main pointer shape */}
+          <g clipPath="url(#pointerClip)">
+            {/* Base fill with gradient */}
             <path
-              d="M12 42 Q10 46 12 50 Q16 54 20 50 Q22 46 20 42 Q16 44 12 42Z"
-              fill="url(#rocketFlame)"
-              opacity="0.9"
+              d="M5.5 3.5L18.5 12L12 13.5L14 20.5L5.5 3.5Z"
+              fill="url(#pointerGradient)"
+              stroke="#B8962E"
+              strokeWidth="0.5"
             />
+
+            {/* Inner highlight for depth */}
             <path
-              d="M14 42 Q13 46 14 49 Q16 51 18 49 Q19 46 18 42 Q16 43 14 42Z"
-              fill="#FFF5CC"
-              opacity="0.8"
+              d="M6 4L17 11L11 12L13 18L6 4Z"
+              fill="rgba(255, 255, 255, 0.2)"
+              className="pointer-highlight"
+            />
+
+            {/* Accent line */}
+            <path
+              d="M5.5 3.5L12 13.5L18.5 12"
+              stroke="rgba(30, 64, 175, 0.3)"
+              strokeWidth="0.5"
+              fill="none"
             />
           </g>
+
+          {/* Subtle sapphire accent at tip */}
+          <circle
+            cx="5.5"
+            cy="3.5"
+            r="1.5"
+            fill="rgba(107, 70, 193, 0.5)"
+            className="pointer-accent"
+          />
         </svg>
+
+        {/* Embedded styles for state animations */}
+        <style jsx>{`
+          .premium-pointer-cursor.hover .pointer-svg {
+            filter: drop-shadow(0 0 12px rgba(30, 64, 175, 0.9))
+                    drop-shadow(0 0 24px rgba(212, 175, 55, 0.6))
+                    drop-shadow(0 0 36px rgba(107, 70, 193, 0.4)) !important;
+            transform: scale(1.2);
+          }
+
+          .premium-pointer-cursor.hover .pointer-glow {
+            opacity: 1;
+            animation: pulse-glow 1.5s ease-in-out infinite;
+          }
+
+          .premium-pointer-cursor.hover .pointer-accent {
+            fill: rgba(30, 64, 175, 0.8);
+            animation: accent-pulse 1s ease-in-out infinite;
+          }
+
+          .premium-pointer-cursor.clicking .pointer-svg {
+            filter: drop-shadow(0 0 16px rgba(212, 175, 55, 1))
+                    drop-shadow(0 0 32px rgba(212, 175, 55, 0.8)) !important;
+            transform: scale(0.9);
+          }
+
+          .premium-pointer-cursor.clicking .pointer-highlight {
+            fill: rgba(255, 255, 255, 0.4);
+          }
+
+          @keyframes pulse-glow {
+            0%, 100% {
+              opacity: 0.6;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.3);
+            }
+          }
+
+          @keyframes accent-pulse {
+            0%, 100% {
+              r: 1.5;
+            }
+            50% {
+              r: 2;
+            }
+          }
+        `}</style>
       </div>
     </>
   );
@@ -375,5 +417,5 @@ const SimpleCursor = () => {
   return null; // Use default cursor when motion is reduced
 };
 
-export { RocketCursor, SimpleCursor };
-export default RocketCursor;
+export { PremiumPointerCursor, SimpleCursor };
+export default PremiumPointerCursor;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import LoadingState from './components/ui/LoadingState';
-import RocketCursor from './components/effects/CustomCursor';
+import PremiumPointerCursor from './components/effects/CustomCursor';
 import ParticleEffects from './components/effects/ParticleEffects';
 import './styles/index.css';
 
@@ -58,8 +58,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-dark-900 relative overflow-hidden">
-      {/* Custom Cursor - Rocket */}
-      {cursorEnabled && <RocketCursor />}
+      {/* Custom Cursor - Premium Pointer */}
+      {cursorEnabled && <PremiumPointerCursor />}
 
       {/* Ambient Background Effects */}
       <ParticleEffects
