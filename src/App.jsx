@@ -1,6 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import LoadingState from './components/ui/LoadingState';
-import PremiumCircleCursor from './components/effects/CustomCursor';
 import ParticleEffects from './components/effects/ParticleEffects';
 import './styles/index.css';
 
@@ -22,23 +21,9 @@ const SectionLoader = () => (
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [cursorEnabled, setCursorEnabled] = useState(true);
   const [defer3DLoading, setDefer3DLoading] = useState(true);
 
   useEffect(() => {
-    // Check for reduced motion preference (deferred to avoid cascading renders)
-    const timer = setTimeout(() => {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) {
-        setCursorEnabled(false);
-      }
-    }, 0);
-
-    // Add cursor effects class to body
-    if (cursorEnabled) {
-      document.body.classList.add('cursor-effects-enabled');
-    }
-
     // Defer 3D scene loading until after initial page load
     // This improves initial page load performance
     const deferTimeout = setTimeout(() => {
@@ -46,7 +31,7 @@ function App() {
     }, 1500); // Wait 1.5 seconds after initial load before allowing 3D scene to initialize
 
     return () => clearTimeout(deferTimeout);
-  }, [cursorEnabled]);
+  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -58,8 +43,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-dark-900 relative overflow-hidden">
-      {/* Custom Cursor - Premium Circle */}
-      {cursorEnabled && <PremiumCircleCursor />}
 
       {/* Ambient Background Effects */}
       <ParticleEffects
