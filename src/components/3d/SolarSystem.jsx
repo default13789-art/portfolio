@@ -18,8 +18,8 @@ const PLANETS = [
     distance: 5.5,
     speed: 1.60,
     tilt: 0.03,
-    color: '#b5b5b5',
-    emissive: '#222222',
+    color: '#a0a0a0',
+    emissive: '#1a1a1a',
     roughness: 0.9,
   },
   {
@@ -28,8 +28,8 @@ const PLANETS = [
     distance: 7.5,
     speed: 1.17,
     tilt: 0.05,
-    color: '#e8cda0',
-    emissive: '#3a2a00',
+    color: '#f5e6a3',
+    emissive: '#2a2000',
     roughness: 0.7,
   },
   {
@@ -38,8 +38,8 @@ const PLANETS = [
     distance: 10.0,
     speed: 1.00,
     tilt: 0.41,
-    color: '#3d85c8',
-    emissive: '#0a1a0a',
+    color: '#2a5f8e',
+    emissive: '#051005',
     roughness: 0.6,
     hasMoon: true,
   },
@@ -50,7 +50,7 @@ const PLANETS = [
     speed: 0.80,
     tilt: 0.44,
     color: '#c1440e',
-    emissive: '#1a0500',
+    emissive: '#150400',
     roughness: 0.9,
   },
   {
@@ -60,7 +60,7 @@ const PLANETS = [
     speed: 0.43,
     tilt: 0.05,
     color: '#c88b3a',
-    emissive: '#1a0800',
+    emissive: '#150700',
     roughness: 0.5,
     bands: true,
   },
@@ -70,8 +70,8 @@ const PLANETS = [
     distance: 24.5,
     speed: 0.32,
     tilt: 0.47,
-    color: '#e4d191',
-    emissive: '#1a1400',
+    color: '#ead6a6',
+    emissive: '#151000',
     roughness: 0.5,
     hasRings: true,
   },
@@ -81,8 +81,8 @@ const PLANETS = [
     distance: 30.0,
     speed: 0.22,
     tilt: 1.71, // nearly on its side
-    color: '#7de8e8',
-    emissive: '#002020',
+    color: '#b5e3e3',
+    emissive: '#001515',
     roughness: 0.4,
   },
   {
@@ -91,8 +91,8 @@ const PLANETS = [
     distance: 35.5,
     speed: 0.18,
     tilt: 0.49,
-    color: '#3f54ba',
-    emissive: '#000820',
+    color: '#2a4090',
+    emissive: '#000515',
     roughness: 0.4,
   },
 ]
@@ -155,7 +155,7 @@ function Moon({ earthRef }) {
   return (
     <mesh ref={moonRef}>
       <sphereGeometry args={[0.15, 16, 16]} />
-      <meshStandardMaterial color="#cccccc" roughness={1} metalness={0} />
+      <meshStandardMaterial color="#d0d0d0" roughness={1} metalness={0} />
     </mesh>
   )
 }
@@ -228,9 +228,9 @@ function Sun() {
       <mesh ref={sunRef}>
         <sphereGeometry args={[2.2, 64, 64]} />
         <meshStandardMaterial
-          color="#fff5a0"
-          emissive="#ff8800"
-          emissiveIntensity={2.0}
+          color="#ffffff"
+          emissive="#ffcc00"
+          emissiveIntensity={1.5}
           roughness={0.4}
           metalness={0}
         />
@@ -240,9 +240,9 @@ function Sun() {
       <mesh ref={glowRef}>
         <sphereGeometry args={[2.6, 32, 32]} />
         <meshBasicMaterial
-          color="#ff6600"
+          color="#ffaa00"
           transparent
-          opacity={0.08}
+          opacity={0.06}
           side={THREE.BackSide}
           depthWrite={false}
         />
@@ -252,18 +252,18 @@ function Sun() {
       <mesh>
         <sphereGeometry args={[3.2, 32, 32]} />
         <meshBasicMaterial
-          color="#ff4400"
+          color="#ff8800"
           transparent
-          opacity={0.04}
+          opacity={0.03}
           side={THREE.BackSide}
           depthWrite={false}
         />
       </mesh>
 
       {/* Main sun point light */}
-      <pointLight color="#ffe8a0" intensity={3.5} distance={120} decay={1.2} castShadow />
+      <pointLight color="#ffffff" intensity={3.5} distance={120} decay={1.2} castShadow />
       {/* Warm fill light */}
-      <pointLight color="#ff6600" intensity={0.8} distance={80} decay={2} />
+      <pointLight color="#ffcc00" intensity={0.6} distance={80} decay={2} />
     </group>
   )
 }
@@ -304,7 +304,7 @@ function AsteroidBelt() {
       </bufferGeometry>
       <pointsMaterial
         size={0.06}
-        color="#a09080"
+        color="#8a7a6a"
         transparent
         opacity={0.6}
         sizeAttenuation

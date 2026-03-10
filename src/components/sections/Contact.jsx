@@ -169,32 +169,41 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* ── Full-width 3D Solar System Display ── */}
+          {/* ── 3D Solar System Card ── */}
           <div className={`reveal reveal-fade-in-up reveal-stagger-2 ${isVisible ? 'reveal-active' : ''}`}>
-            <div className="relative w-full h-[500px] lg:h-[600px] rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm bg-white/[0.02]">
-              {/* 3D Universe Scene - Main Visual Attraction */}
-              {canLoad3D && (
-                <LazyUniverseScene
-                  starCount={isMobile ? 2500 : 6000}
-                  visibilityThreshold={0.1}
-                  rootMargin="100px"
-                  unloadWhenHidden={false}
-                  unloadDelay={10000}
-                  className="w-full h-full"
-                />
-              )}
+            <div className="flex justify-center">
+              <div className="group relative w-full max-w-4xl">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-gold-luster/20 via-sapphire-blue/20 to-deep-amethyst/20 rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                <Card className="relative backdrop-blur-xl bg-white/[0.03] border-white/10 shadow-[0_0_40px_rgba(212,175,55,0.15)]">
+                  <CardContent className="p-0">
+                    <div className="relative w-full h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
+                      {/* 3D Universe Scene */}
+                      {canLoad3D && (
+                        <LazyUniverseScene
+                          starCount={isMobile ? 2500 : 6000}
+                          visibilityThreshold={0.1}
+                          rootMargin="100px"
+                          unloadWhenHidden={false}
+                          unloadDelay={10000}
+                          className="w-full h-full rounded-xl"
+                        />
+                      )}
 
-              {/* Subtle glow effect */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-sapphire-blue/10 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-deep-amethyst/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+                      {/* Subtle glow effect */}
+                      <div className="absolute inset-0 pointer-events-none">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-sapphire-blue/10 rounded-full blur-3xl animate-pulse" />
+                        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-deep-amethyst/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+                      </div>
+
+                      {/* Decorative corner accents */}
+                      <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-gold-luster/20 rounded-tl-xl" />
+                      <div className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-gold-luster/20 rounded-tr-xl" />
+                      <div className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-gold-luster/20 rounded-bl-xl" />
+                      <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-gold-luster/20 rounded-br-xl" />
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-
-              {/* Decorative corner accents */}
-              <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-gold-luster/20 rounded-tl-2xl" />
-              <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-gold-luster/20 rounded-tr-2xl" />
-              <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-gold-luster/20 rounded-bl-2xl" />
-              <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-gold-luster/20 rounded-br-2xl" />
             </div>
           </div>
         </div>

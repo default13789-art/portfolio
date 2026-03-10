@@ -17,8 +17,16 @@ export default {
         'text-muted': '#9CA3AF',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
+        // Primary display font: elegant and luxurious serif
+        display: ['"Playfair Display"', 'serif'],
+        // Body font: refined and sophisticated
+        body: ['"Cormorant Garamond"', 'serif'],
+        // Decorative/classical font
+        cinzel: ['"Cinzel"', 'serif'],
+        // Premium monospace for code
+        mono: ['"JetBrains Mono"', 'monospace'],
+        // Legacy support
+        sans: ['"Cormorant Garamond"', 'serif'],
       },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',

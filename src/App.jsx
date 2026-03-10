@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import LoadingState from './components/ui/LoadingState';
-import PremiumPointerCursor from './components/effects/CustomCursor';
+import PremiumCircleCursor from './components/effects/CustomCursor';
 import ParticleEffects from './components/effects/ParticleEffects';
 import './styles/index.css';
 
@@ -58,8 +58,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-dark-900 relative overflow-hidden">
-      {/* Custom Cursor - Premium Pointer */}
-      {cursorEnabled && <PremiumPointerCursor />}
+      {/* Custom Cursor - Premium Circle */}
+      {cursorEnabled && <PremiumCircleCursor />}
 
       {/* Ambient Background Effects */}
       <ParticleEffects

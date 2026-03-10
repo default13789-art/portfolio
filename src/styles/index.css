@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,16 +8,45 @@
    WEB3.0 DESIGN SYSTEM — Global additions
    ═══════════════════════════════════════════ */
 
-/* Apply Space Grotesk globally */
+/* ═══════════════════════════════════════════
+   PREMIUM TYPOGRAPHY SYSTEM
+   ═══════════════════════════════════════════ */
+
+/* Luxury Font Family Definitions */
 :root {
-  --font-primary: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'Space Mono', 'Fira Code', monospace;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Cormorant Garamond', 'Crimson Text', Georgia, serif;
+  --font-cinzel: 'Cinzel', 'Trajan Pro', serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 }
 
+/* Default body font - refined and sophisticated */
 body {
-  font-family: var(--font-primary) !important;
+  font-family: var(--font-body) !important;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
 }
 
+/* Display/headings - elegant and luxurious */
+h1, h2, h3, h4, h5, h6,
+.font-display,
+[class*="font-display"] {
+  font-family: var(--font-display) !important;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Decorative/classical elements */
+.font-cinzel,
+[class*="font-cinzel"] {
+  font-family: var(--font-cinzel) !important;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Code blocks - premium monospace */
 code, .font-mono, [class*="font-mono"] {
   font-family: var(--font-mono) !important;
 }
@@ -1940,7 +1969,7 @@ body::after {
    ======================================== */
 
 /* ------------------------
-   PREMIUM POINTER CURSOR
+   PREMIUM CIRCLE CURSOR
    ------------------------ */
 
 /* Trail particle container */
@@ -1965,19 +1994,64 @@ body::after {
   will-change: transform, opacity;
 }
 
-/* Premium pointer cursor */
-.premium-pointer-cursor {
+/* Click burst particle */
+.cursor-click-burst {
+  will-change: transform, opacity;
+}
+
+/* Premium circle cursor */
+.premium-circle-cursor {
   will-change: transform;
 }
 
-/* Hover state handled in component with embedded styles */
-.premium-pointer-cursor.hover {
-  /* Multi-color glow applied via embedded styles */
+.premium-circle-cursor.hover .cursor-main-circle {
+  transform: scale(1.5);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 1), 0 0 32px rgba(212, 175, 55, 0.7), 0 0 48px rgba(30, 64, 175, 0.5), 0 0 64px rgba(107, 70, 193, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2) !important;
+  background: radial-gradient(circle at 30% 30%, rgba(244, 208, 63, 1) 0%, rgba(212, 175, 55, 0.9) 50%, rgba(30, 64, 175, 0.8) 100%) !important;
+  animation: hover-pulse 1.5s ease-in-out infinite;
 }
 
-/* Click state handled in component with embedded styles */
-.premium-pointer-cursor.clicking {
-  /* Intense glow applied via embedded styles */
+.premium-circle-cursor.clicking .cursor-main-circle {
+  transform: scale(0.85);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 1), 0 0 40px rgba(212, 175, 55, 0.9), 0 0 60px rgba(30, 64, 175, 0.6), inset 0 2px 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Outer ring */
+.premium-circle-cursor-outer {
+  will-change: transform, opacity;
+}
+
+.premium-circle-cursor-outer.hover div {
+  transform: scale(1.8);
+  border-color: rgba(30, 64, 175, 0.7) !important;
+  box-shadow: 0 0 30px rgba(30, 64, 175, 0.5), 0 0 50px rgba(107, 70, 193, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.3) !important;
+  animation: outer-pulse 2s ease-in-out infinite;
+}
+
+.premium-circle-cursor-outer.clicking div {
+  transform: scale(1.2);
+  border-color: rgba(212, 175, 55, 0.8) !important;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(212, 175, 55, 0.5) !important;
+}
+
+@keyframes hover-pulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes outer-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 /* ------------------------
@@ -2190,7 +2264,7 @@ body::after {
 /* Binary code decoration */
 .binary-decorator {
   position: absolute;
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   font-size: 10px;
   color: rgba(60, 230, 249, 0.1);
   line-height: 1.2;
@@ -2258,7 +2332,7 @@ body::after {
   border: 1px solid rgba(60, 230, 249, 0.3);
   border-radius: 12px;
   font-size: 11px;
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   color: #3ce6f9;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -2373,7 +2447,7 @@ body::after {
   inset: 0;
   pointer-events: none;
   opacity: 0.05;
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   font-size: 14px;
   color: #3ce6f9;
   overflow: hidden;
@@ -2478,9 +2552,11 @@ body.cursor-effects-enabled * {
 
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .premium-pointer-cursor,
+  .premium-circle-cursor,
+  .cursor-outer-ring,
   .cursor-trail-particle,
   .cursor-click-ripple,
+  .cursor-click-burst,
   .particle,
   .pulsing-orb,
   .scan-lines {
