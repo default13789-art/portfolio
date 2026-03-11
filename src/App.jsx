@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
+import Lenis from 'lenis';
 import LoadingState from './components/ui/LoadingState';
 import ParticleEffects from './components/effects/ParticleEffects';
 import './styles/index.css';
@@ -24,13 +25,36 @@ function App() {
   const [defer3DLoading, setDefer3DLoading] = useState(true);
 
   useEffect(() => {
+    // Initialize Lenis smooth scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
     // Defer 3D scene loading until after initial page load
     // This improves initial page load performance
     const deferTimeout = setTimeout(() => {
       setDefer3DLoading(false);
     }, 1500); // Wait 1.5 seconds after initial load before allowing 3D scene to initialize
 
-    return () => clearTimeout(deferTimeout);
+    return () => {
+      clearTimeout(deferTimeout);
+      lenis.destroy();
+    };
   }, []);
 
   const handleLoadingComplete = () => {
