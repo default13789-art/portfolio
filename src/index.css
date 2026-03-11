@@ -5,13 +5,13 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #1A1A2E;
+  background-color: #050510;
 
   /* Premium Color Palette */
-  --primary-dark: #1A1A2E;
+  --primary-dark: #050510;
   --gold-luster: #D4AF37;
-  --sapphire-blue: #00f3ff;
-  --deep-amethyst: #ff00ff;
+  --sapphire-blue: #00F5FF;
+  --deep-amethyst: #8A2BE2;
   --emerald-success: #10B981;
   --text-primary: #FFFFFF;
   --text-secondary: #d1d5db;

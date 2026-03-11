@@ -60,10 +60,10 @@ code, .font-mono, [class*="font-mono"] {
 
 /* ── Web3 iridescent border ── */
 @keyframes iridescent {
-  0%   { border-image-source: linear-gradient(0deg,   #00f3ff, #ff00ff, #00f3ff); }
-  33%  { border-image-source: linear-gradient(120deg, #ff00ff, #ffff00, #00f3ff); }
-  66%  { border-image-source: linear-gradient(240deg, #ffff00, #00f3ff, #ff00ff); }
-  100% { border-image-source: linear-gradient(360deg, #00f3ff, #ff00ff, #00f3ff); }
+  0%   { border-image-source: linear-gradient(0deg,   #00F5FF, #8A2BE2, #00F5FF); }
+  33%  { border-image-source: linear-gradient(120deg, #8A2BE2, #ffff00, #00F5FF); }
+  66%  { border-image-source: linear-gradient(240deg, #ffff00, #00F5FF, #8A2BE2); }
+  100% { border-image-source: linear-gradient(360deg, #00F5FF, #8A2BE2, #00F5FF); }
 }
 
 .web3-card {
@@ -141,7 +141,7 @@ body::after {
 /* ── Glowing separator line ── */
 .w3-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #00f3ff, #ff00ff, transparent);
+  background: linear-gradient(90deg, transparent, #00F5FF, #8A2BE2, transparent);
   opacity: 0.3;
 }
 
@@ -154,7 +154,7 @@ body::after {
   }
 
   body {
-    @apply bg-[#050505] text-gray-100 antialiased;
+    @apply bg-[#050510] text-gray-100 antialiased;
     font-feature-settings: "cv11", "ss01";
     font-variation-settings: "opsz" 32;
     /* Prevent horizontal scroll on mobile */
@@ -211,7 +211,7 @@ body::after {
   }
 
   .gradient-text {
-    background: linear-gradient(to right, #00f3ff, #ff00ff, #00f3ff);
+    background: linear-gradient(to right, #00F5FF, #8A2BE2, #00F5FF);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -221,7 +221,7 @@ body::after {
 
   .gradient-border {
     position: relative;
-    background: linear-gradient(to right, #00f3ff, #ff00ff, #00f3ff);
+    background: linear-gradient(to right, #00F5FF, #8A2BE2, #00F5FF);
     background-size: 200% auto;
     animation: gradient-x 3s linear infinite;
   }
@@ -258,7 +258,7 @@ body::after {
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300;
+    @apply px-6 py-3 bg-gradient-to-r from-[#00F5FF] to-[#8A2BE2] text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300;
   }
 
   .btn-primary:hover {
@@ -266,7 +266,7 @@ body::after {
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-transparent border-2 border-[#00f3ff] text-[#00f3ff] font-semibold rounded-lg hover:bg-[#00f3ff]/10 transform hover:scale-105 transition-all duration-300;
+    @apply px-6 py-3 bg-transparent border-2 border-[#00F5FF] text-[#00F5FF] font-semibold rounded-lg hover:bg-[#00F5FF]/10 transform hover:scale-105 transition-all duration-300;
   }
 }
 
@@ -420,11 +420,11 @@ body::after {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #050510;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #06b6d4, #ff00ff);
+  background: linear-gradient(to bottom, #06b6d4, #8A2BE2);
   border-radius: 5px;
 }
 
@@ -625,7 +625,7 @@ body::after {
   display: inline-block;
   width: 3px;
   height: 1em;
-  background-color: #00f3ff;
+  background-color: #00F5FF;
   margin-left: 4px;
   animation: blink 1s infinite;
   vertical-align: text-bottom;
@@ -1436,7 +1436,7 @@ body::after {
 .contact-input:focus ~ .contact-floating-label,
 .contact-input:not(:placeholder-shown) ~ .contact-floating-label {
   transform: translateY(-28px) scale(0.85);
-  color: #00f3ff;
+  color: #00F5FF;
   font-weight: 600;
 }
 
@@ -1890,8 +1890,8 @@ body::after {
   background: linear-gradient(
     90deg,
     transparent,
-    #00f3ff,
-    #ff00ff,
+    #00F5FF,
+    #8A2BE2,
     transparent
   );
   transform: translateX(-50%);
@@ -2119,7 +2119,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #00f3ff, #d946ef, #ffff00);
+  background: linear-gradient(90deg, #00F5FF, #8A2BE2, #ffff00);
   box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
 }
 
@@ -2143,7 +2143,7 @@ body::after {
 .cyberpunk-clock .clock-time {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #00f3ff;
+  color: #00F5FF;
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.8), 0 0 20px rgba(0, 243, 255, 0.4);
   letter-spacing: 2px;
   font-variant-numeric: tabular-nums;
@@ -2197,7 +2197,7 @@ body::after {
 .cyberpunk-clock .weather-temp {
   font-size: 1rem;
   font-weight: 700;
-  color: #00f3ff;
+  color: #00F5FF;
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
 }
 
@@ -2214,7 +2214,7 @@ body::after {
 .cyberpunk-clock .loading-dot {
   width: 8px;
   height: 8px;
-  background: #00f3ff;
+  background: #00F5FF;
   border-radius: 50%;
   animation: pulse-loading 1s ease-in-out infinite;
   box-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
@@ -2252,7 +2252,7 @@ body::after {
 }
 
 .cyberpunk-clock .status-dot.sync {
-  background: #d946ef;
+  background: #8A2BE2;
   box-shadow: 0 0 8px rgba(217, 70, 239, 0.8);
   animation-delay: 0.6s;
 }
@@ -2374,14 +2374,14 @@ body::after {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: #00f3ff;
+  background: #00F5FF;
   border-radius: 50%;
   animation: particleFloat 15s infinite linear;
   opacity: 0.6;
 }
 
 .particle:nth-child(odd) {
-  background: #ff00ff;
+  background: #8A2BE2;
 }
 
 @keyframes particleFloat {
@@ -2405,7 +2405,7 @@ body::after {
 .glow-line {
   position: absolute;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #00f3ff, #ff00ff, transparent);
+  background: linear-gradient(90deg, transparent, #00F5FF, #8A2BE2, transparent);
   animation: lineGlow 3s ease-in-out infinite;
 }
 
@@ -2416,7 +2416,7 @@ body::after {
 .glow-line.vertical {
   width: 1px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #00f3ff, #ff00ff, transparent);
+  background: linear-gradient(180deg, transparent, #00F5FF, #8A2BE2, transparent);
 }
 
 @keyframes lineGlow {
@@ -2605,7 +2605,7 @@ body::after {
 
 .data-bar {
   width: 3px;
-  background: linear-gradient(to top, #00f3ff, #ff00ff);
+  background: linear-gradient(to top, #00F5FF, #8A2BE2);
   border-radius: 1px;
   animation: dataBarPulse 2s ease-in-out infinite;
 }
@@ -2632,7 +2632,7 @@ body::after {
   border-radius: 12px;
   font-size: 11px;
   font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-  color: #00f3ff;
+  color: #00F5FF;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -2672,7 +2672,7 @@ body::after {
   left: 20px;
   right: 20px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+  background: linear-gradient(90deg, transparent, #00F5FF, transparent);
 }
 
 .tech-frame::after {
@@ -2682,7 +2682,7 @@ body::after {
   left: 20px;
   right: 20px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #ff00ff, transparent);
+  background: linear-gradient(90deg, transparent, #8A2BE2, transparent);
 }
 
 /* Animated border */
@@ -2696,7 +2696,7 @@ body::after {
   position: absolute;
   inset: 0;
   padding: 1px;
-  background: linear-gradient(90deg, #00f3ff, #ff00ff, #00f3ff, #00f3ff);
+  background: linear-gradient(90deg, #00F5FF, #8A2BE2, #00F5FF, #00F5FF);
   background-size: 300% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -2748,7 +2748,7 @@ body::after {
   opacity: 0.05;
   font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   font-size: 14px;
-  color: #00f3ff;
+  color: #00F5FF;
   overflow: hidden;
 }
 
@@ -3152,7 +3152,7 @@ body.cursor-effects-enabled * {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #00f3ff, #ff00ff);
+  background: linear-gradient(90deg, #00F5FF, #8A2BE2);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.6s ease-out;

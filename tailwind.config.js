@@ -7,21 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary-dark': '#050505',
+        'primary-dark': '#050510',
         'gold-luster': '#ffff00',
-        'sapphire-blue': '#00f3ff',
-        'deep-amethyst': '#ff00ff',
+        'sapphire-blue': '#00F5FF',
+        'deep-amethyst': '#8A2BE2',
         'emerald-success': '#00ff41',
         'text-primary': '#FFFFFF',
         'text-secondary': '#d1d5db',
         'text-muted': '#9CA3AF',
         // Cyberpunk neon colors
-        'neon-cyan': '#00f3ff',
-        'neon-magenta': '#ff00ff',
+        'neon-cyan': '#00F5FF',
+        'neon-magenta': '#8A2BE2',
         'neon-yellow': '#ffff00',
         'neon-pink': '#ff0099',
         'neon-green': '#00ff41',
-        'magenta-500': '#d946ef',
+        'magenta-500': '#8A2BE2',
       },
       fontFamily: {
         // Primary display font: futuristic
