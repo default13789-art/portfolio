@@ -24,16 +24,16 @@ export default {
         'magenta-500': '#d946ef',
       },
       fontFamily: {
-        // Primary display font: elegant and luxurious serif
-        display: ['"Playfair Display"', 'serif'],
-        // Body font: refined and sophisticated
-        body: ['"Cormorant Garamond"', 'serif'],
-        // Decorative/classical font
-        cinzel: ['"Cinzel"', 'serif'],
+        // Primary display font: futuristic
+        display: ['"Orbitron"', 'sans-serif'],
+        // Body font: technical and industrial
+        body: ['"Rajdhani"', 'sans-serif'],
+        // Cyberpunk tech elements
+        cinzel: ['"Space Mono"', 'monospace'],
         // Premium monospace for code
         mono: ['"JetBrains Mono"', 'monospace'],
         // Legacy support
-        sans: ['"Cormorant Garamond"', 'serif'],
+        sans: ['"Rajdhani"', 'sans-serif'],
       },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
