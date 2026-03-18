@@ -1,5 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Lenis from 'lenis';
+import { Analytics } from '@vercel/analytics/react';
 import LoadingState from './components/ui/LoadingState';
 import ParticleEffects from './components/effects/ParticleEffects';
 import './styles/index.css';
@@ -109,6 +110,8 @@ function App() {
           <Footer />
         </Suspense>
       </div>
+      
+      <Analytics />
     </div>
   );
 }
