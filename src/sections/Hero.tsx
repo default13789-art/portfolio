@@ -98,20 +98,6 @@ const Hero = () => {
           <AnimatedSection direction="up" delay={0.2}>
             <div className="glass-card p-6 sm:p-8 md:p-12 lg:p-16 text-center backdrop-blur-xl bg-white/[0.03] border border-white/10 shadow-[0_0_40px_rgba(212,175,55,0.15)] mx-2 sm:mx-0">
 
-              {/* ── Web3 Identity Bar ── */}
-              <div className="flex flex-wrap items-center justify-center gap-3 mb-8 opacity-100">
-                {/* Decentralized builder tag */}
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-deep-amethyst/10 to-sapphire-blue/10 border border-deep-amethyst/25 text-deep-amethyst">
-                  <span className="w-1.5 h-1.5 rounded-full bg-deep-amethyst animate-pulse" />
-                  Decentralized Builder · LVL 9
-                </span>
-                {/* Network badge */}
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-[#050510] border border-white/10 text-gray-400">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88]" />
-                  ETH Mainnet
-                </span>
-              </div>
-
               {/* Greeting */}
               <p className="text-[#ffff00] font-semibold mb-3 sm:mb-4 text-base sm:text-lg opacity-100">
                 Hello, I'm

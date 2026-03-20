@@ -130,28 +130,6 @@ const About = () => {
               ))}
             </div>
 
-            {/* Web3 Activity Feed */}
-            <div className={`reveal reveal-fade-in-up reveal-stagger-4 ${isVisible ? 'reveal-active' : ''}`}>
-              <div className="p-4 rounded-xl bg-[#050510] border border-white/[0.06]">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
-                  <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">Live Activity</span>
-                </div>
-                <div className="space-y-2">
-                  {[
-                    { action: 'Deployed', target: 'AI Automation Pipeline', time: '2h ago', color: '#00F5FF' },
-                    { action: 'Merged PR', target: 'Neural UI Component', time: '1d ago', color: '#8A2BE2' },
-                    { action: 'Shipped', target: 'Web3 Portfolio v2.0', time: '3d ago', color: '#00ff88' },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs">
-                      <span className="font-mono text-gray-500">{item.time}</span>
-                      <span className="font-semibold" style={{ color: item.color }}>{item.action}</span>
-                      <span className="text-gray-400 truncate">{item.target}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
